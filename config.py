@@ -30,9 +30,9 @@ config = {
         {
             "type": "logcat",
             "keystr": r"pid:.*tid:.*name:.*>>>.*<<<",
-            "line_tag": "I_DO_NOT_KNOW",
-            "item": r"I_DO_NOT_KNOW",
-            "item_repl": r"I_DO_NOT_KNOW",
+            "line_tag": "DEBUG   :",
+            "item": r"pid:.*tid:.*name:.*>>> (?P<proc_name>.*) <<<\n.* signal .*?\((?P<ex_name>\w+)\), code .*?\((?P<ex_desc>.+)\)",
+            "item_repl": r"pid: (?P<pid>\d+), tid: (?P<tid>\d+), name:.*",
             "desc": "native crash"
         },
         {
