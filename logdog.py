@@ -74,7 +74,7 @@ class LogDog:
                             break
 
                     if not (callback is None):
-                        callback(bone_text)
+                        callback((bone_text, t))
                     break
 
     def _is_tag_line(self, line, tast):
@@ -94,9 +94,9 @@ class LogDog:
 
         return True
 
-    def put_queue(self, line):
+    def put_queue(self, bone_info):
         # print("put_queue")
-        self.q.put(line)
+        self.q.put(bone_info)
 
     def detect_type(self, text):
         logtype = self.config["logtype"]
@@ -110,45 +110,53 @@ class LogDog:
             if match:
                 return match.group()
 
-    def _parse_bone_text(self, text, logtype):
-        new_text = "".join([re.sub(logtype["charact_co"], "", line) for line in text])
+    def _remove_time_stamp(self, text, logtype):
+        new_text = [re.sub(logtype["charact_co"], "", line) for line in text]
+        return "".join(new_text)
 
-        match = re.search(logtype["item_repl_co"], new_text)
+    def _remove_text_chip(self, text, taste):
+        match = re.search(taste["item_repl_co"], text)
         if match:
             import array
-            arr_text = array.array("u", new_text)
+            arr_text = array.array("u", text)
             spans = match.regs
-            item_repl_co = logtype["item_repl_co"]
+            item_repl_co = taste["item_repl_co"]
             groupdict = dict(zip(item_repl_co.groupindex.values(), item_repl_co.groupindex.keys()))
             for i in range(len(spans) - 1, 0, -1):
                 arr_text[slice(*spans[i])] = array.array("u", "<" + groupdict[i] + ">")
             return arr_text.tounicode()
-        return new_text
+        return text
 
-    def _parse_bone_item(self, text, logtype):
-        match = re.search(logtype["item_co"], "".join(text))
+    def _parse_bone_item(self, text, taste):
+        match = re.search(taste["item_co"], "".join(text))
         if match:
             return match.groupdict()
 
     def parse_bone(self, **kargs):
         while True:
-            text = self.q.get()
+            bone_info = self.q.get()
+            text = bone_info[0]
+            taste = bone_info[1]
+
             if text == "QUIT":
                 break
+
             logtype = self.detect_type(text)
             # print(logtype)
             time_stamp = self._parse_bone_time(text, logtype)
             # print(time_stamp)
-            notime_text = self._parse_bone_text(text, logtype)
+            notime_text = self._remove_time_stamp(text, logtype)
             # print(notime_text)
-            items = self._parse_bone_item(notime_text, logtype)
+            new_text = self._remove_text_chip(notime_text, taste)
+            # print(new_text)
+            items = self._parse_bone_item(new_text, taste)
             # print(items)
-            bone = Bone(notime_text, time_stamp, **items)
+            bone = Bone(new_text, time_stamp, **items)
             self.counter.put(bone)
         return 0
 
     def quit_parse(self):
-        self.q.put("QUIT")
+        self.q.put(("QUIT", None))
 
     def print_result(self, fobj):
         for key, value in self.counter.result().items():
@@ -182,13 +190,12 @@ def init_config(config):
     logtype = config["logtype"]
     logtype["charact_co"] = re.compile(logtype["charact"])
     logtype["time_co"] = re.compile(logtype["time"])
-    logtype["item_co"] = re.compile(logtype["item"])
-    logtype["item_repl_co"] = re.compile(logtype["item_repl"])
 
     tastes = config["tastes"]
     for t in tastes:
         t["keystr_co"] = re.compile(t["keystr"])
-
+        t["item_co"] = re.compile(t["item"])
+        t["item_repl_co"] = re.compile(t["item_repl"])
     return config
 
 

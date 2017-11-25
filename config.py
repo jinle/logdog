@@ -16,27 +16,31 @@ config = {
         # 11-17 16:27:00.050984  1519  1519 D SettingsInterfac  from settings cache , name = time_12_24 , value = 24
         "type": "logcat-threadtime",
         "charact": r"^\d\d-\d\d \d\d:\d\d:\d\d\.\d+ +\d+ +\d+ [EWIDV] ",
-        "time": r"^\d\d-\d\d \d\d:\d\d:\d\d\.\d+",
-        "item": r"AndroidRuntime: Process: (?P<proc_name>.*),.*\nAndroidRuntime: (?P<ex_name>.*?): (?P<ex_desc>.*)",
-        "item_repl": r"AndroidRuntime: Process: .*,.PID: (?P<pid>\d+)"
+        "time": r"^\d\d-\d\d \d\d:\d\d:\d\d\.\d+"
     },
     "tastes": [
         {
             "type": "logcat",
             "keystr": r"FATAL EXCEPTION IN SYSTEM PROCESS",
             "line_tag": "AndroidRuntime:",
+            "item": r"I_DO_NOT_KNOW",
+            "item_repl": r"I_DO_NOT_KNOW",
             "desc": "system_server进程崩溃"
         },
         {
             "type": "logcat",
             "keystr": r"pid:.*tid:.*name:.*>>>.*<<<",
             "line_tag": "I_DO_NOT_KNOW",
+            "item": r"I_DO_NOT_KNOW",
+            "item_repl": r"I_DO_NOT_KNOW",
             "desc": "native crash"
         },
         {
             "type": "logcat",
             "keystr": r"FATAL EXCEPTION:",
             "line_tag": "AndroidRuntime:",
+            "item": r"AndroidRuntime: Process: (?P<proc_name>.*),.*\nAndroidRuntime: (?P<ex_name>.*?): (?P<ex_desc>.*)",
+            "item_repl": r"AndroidRuntime: Process: .*,.PID: (?P<pid>\d+)",
             "desc": "java crash"
         }
 
