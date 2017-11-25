@@ -15,7 +15,7 @@ config = {
         # logcat -v usec
         # 11-17 16:27:00.050984  1519  1519 D SettingsInterfac  from settings cache , name = time_12_24 , value = 24
         "type": "logcat-threadtime",
-        "charact": r"^\d\d-\d\d \d\d:\d\d:\d\d\.\d+ +\d+ +\d+ [EWIDV] ",
+        "charact": r"^\d\d-\d\d \d\d:\d\d:\d\d\.\d+ +\d+ +\d+ [FEWIDV] ",
         "time": r"^\d\d-\d\d \d\d:\d\d:\d\d\.\d+"
     },
     "tastes": [
