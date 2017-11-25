@@ -59,15 +59,15 @@ class LogDog:
         # print(json.dumps(self.config, indent=4, default=lambda x: repr(x)))
 
     def search(self, fobj, callback=None):
-        tasts_list = self.config["taste"]
+        tastes = self.config["tastes"]
         for line in fobj:
-            for tast in tasts_list:
-                if re.search(tast["keystr_co"], line):
+            for t in tastes:
+                if re.search(t["keystr_co"], line):
                     bone_text = []
                     bone_text.append(line)
                     # 找到所有续行
                     for xline in fobj:
-                        if self._is_tag_line(xline, tast):
+                        if self._is_tag_line(xline, t):
                             bone_text.append(xline)
                         else:
                             fobj.put(xline)
@@ -87,8 +87,8 @@ class LogDog:
         if not re.search(tast["line_tag"], line):
             return False
 
-        tasts_list = self.config["taste"]
-        for t in tasts_list:
+        tastes = self.config["tastes"]
+        for t in tastes:
             if re.search(t["keystr_co"], line):
                 return False
 
@@ -99,11 +99,10 @@ class LogDog:
         self.q.put(line)
 
     def detect_type(self, text):
-        detector_list = self.config["logtype"]
-        for x in detector_list:
-            for line in text:
-                if re.search(x["detector_co"], line):
-                    return x
+        logtype = self.config["logtype"]
+        for line in text:
+            if re.search(logtype["charact_co"], line):
+                return logtype
 
     def _parse_bone_time(self, text, logtype):
         for line in text:
@@ -112,7 +111,7 @@ class LogDog:
                 return match.group()
 
     def _parse_bone_text(self, text, logtype):
-        new_text = "".join([re.sub(logtype["detector_co"], "", line) for line in text])
+        new_text = "".join([re.sub(logtype["charact_co"], "", line) for line in text])
 
         match = re.search(logtype["item_repl_co"], new_text)
         if match:
@@ -179,14 +178,16 @@ class Bone(object):
 
 
 def init_config(config):
-    for x in config["taste"]:
-        x["keystr_co"] = re.compile(x["keystr"])
 
-    for x in config["logtype"]:
-        x["detector_co"] = re.compile(x["detector"])
-        x["time_co"] = re.compile(x["time"])
-        x["item_co"] = re.compile(x["item"])
-        x["item_repl_co"] = re.compile(x["item_repl"])
+    logtype = config["logtype"]
+    logtype["charact_co"] = re.compile(logtype["charact"])
+    logtype["time_co"] = re.compile(logtype["time"])
+    logtype["item_co"] = re.compile(logtype["item"])
+    logtype["item_repl_co"] = re.compile(logtype["item_repl"])
+
+    tastes = config["tastes"]
+    for t in tastes:
+        t["keystr_co"] = re.compile(t["keystr"])
 
     return config
 
