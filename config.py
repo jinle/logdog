@@ -25,7 +25,7 @@ config = {
             "key_tag": r"FATAL EXCEPTION IN SYSTEM PROCESS:",
             "line_tag": [r"AndroidRuntime:"],
             "item": {
-                "proc_name": "system_app",
+                "proc_name": "system_server",
                 "re": [
                     r"FATAL EXCEPTION IN SYSTEM PROCESS:.*\nAndroidRuntime: (?P<ex_name>.*?): (?P<ex_desc>.*)"
                 ]
