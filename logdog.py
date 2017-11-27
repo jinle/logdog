@@ -139,7 +139,6 @@ class LogDog:
             match = re.search(x, text)
             if match:
                 result.update(match.groupdict())
-        print(result)
         return result
 
     def native_crash_repl(self, text, taste):
