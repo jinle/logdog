@@ -23,7 +23,7 @@ config = {
             "name": "system-crash",
             "begin_tag": r"I_DO_NOT_KNOW",
             "key_tag": r"FATAL EXCEPTION IN SYSTEM PROCESS:",
-            "line_tag": "AndroidRuntime:",
+            "line_tag": [r"AndroidRuntime:"],
             "item": r"I_DO_NOT_KNOW",
             "item_repl": [r"I_DO_NOT_KNOW"]
         },
@@ -31,7 +31,7 @@ config = {
             "name": "native-crash",
             "begin_tag": r"(\*\*\* ){15}\*\*\*",
             "key_tag": r"pid:.*tid:.*name:.*>>>.*<<<",
-            "line_tag": "DEBUG   :",
+            "line_tag": [r"DEBUG   :", r"AEE/AED :"],
             "item": r"pid:.*tid:.*name:.*>>> (?P<proc_name>.*) <<<\n.* signal .*?\((?P<ex_name>\w+)\), code .*?\((?P<ex_desc>.+)\)",
             "item_repl": [r"pid: (?P<pid>\d+), tid: (?P<tid>\d+), name:.*",
                           r"signal .*, code .*, fault addr (?P<addr>\w+)",
@@ -42,7 +42,7 @@ config = {
             "name": "app-crash",
             "begin_tag": r"FATAL EXCEPTION:",
             "key_tag": r"FATAL EXCEPTION:",
-            "line_tag": "AndroidRuntime:",
+            "line_tag": ["AndroidRuntime:"],
             "item": r"AndroidRuntime: Process: (?P<proc_name>.*),.*\nAndroidRuntime: (?P<ex_name>.*?): (?P<ex_desc>.*)",
             "item_repl": [r"AndroidRuntime: Process: .*,.PID: (?P<pid>\d+)"]
         }

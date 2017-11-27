@@ -85,8 +85,11 @@ class LogDog:
 
         如果tast.line_tag能够被line匹配，并且不能被所有tasts[x].line_tag匹配，则返回True，否则返回False
         '''
-
-        if not re.search(tast["line_tag"], line):
+        line_tag = None
+        for tag in tast["line_tag"]:
+            if re.search(tag, line):
+                line_tag = tag
+        if line_tag is None:
             return False
 
         tastes = self.config["tastes"]
