@@ -59,7 +59,23 @@ config = {
                 ]
             },
             "item_repl": [r"AndroidRuntime: Process: .*,.PID: (?P<pid>\d+)"]
-        }
+        },
+        {
+            "name": "app-anr",
+            "begin_tag": r"ActivityManager: ANR in ",
+            "key_tag": r"ActivityManager: ANR in ",
+            "line_tag": ["ActivityManager:"],
+            "end_tag": r"ActivityManager: Load: [\d.]+ / [\d.]+ / [\d.]+",
+            "item": {
+                "ex_desc": None,
+                "re": [
+                    r"ActivityManager: ANR in (?P<proc_name>.*) ",
+                    r"ActivityManager: Reason: (?P<ex_name>.*?) \(.*\)"
+                ]
+            },
+            "item_repl": [r"ActivityManager: PID: (?P<pid>\d+)",
+                          r"ActivityManager: Reason: .* \((?P<reason_detail>.*)\)"]
 
+        }
     ]
 }

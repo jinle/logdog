@@ -92,6 +92,9 @@ class LogDog:
         if line_tag is None:
             return False
 
+        if "end_tag_co" in tast and re.search(tast["end_tag_co"], line):
+            return False
+
         tastes = self.config["tastes"]
         for t in tastes:
             if re.search(t["begin_tag_co"], line):
@@ -182,7 +185,6 @@ class LogDog:
                     new_text = methodcaller("native_crash_repl", new_text, taste)(self)
 
             items = self._parse_bone_item(new_text, taste)
-            # print(items)
             bone = Bone(new_text, time_stamp, **items)
             self.counter.put(bone)
         return 0
@@ -226,6 +228,8 @@ def init_config(config):
     tastes = config["tastes"]
     for t in tastes:
         t["begin_tag_co"] = re.compile(t["begin_tag"])
+        if "end_tag" in t:
+            t["end_tag_co"] = re.compile(t["end_tag"])
         t["item"]["re_co"] = [re.compile(x) for x in t["item"]["re"]]
         t["item_repl_co"] = [re.compile(x) for x in t["item_repl"]]
     return config
