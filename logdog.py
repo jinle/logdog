@@ -132,9 +132,15 @@ class LogDog:
         return text
 
     def _parse_bone_item(self, text, taste):
-        match = re.search(taste["item_co"], "".join(text))
-        if match:
-            return match.groupdict()
+        item = taste["item"]
+        result = {k: v for k, v in item.items() if k not in ["re", "re_co"]}
+
+        for x in item["re_co"]:
+            match = re.search(x, text)
+            if match:
+                result.update(match.groupdict())
+        print(result)
+        return result
 
     def native_crash_repl(self, text, taste):
         text_list = text.split("\n")
@@ -221,7 +227,7 @@ def init_config(config):
     tastes = config["tastes"]
     for t in tastes:
         t["begin_tag_co"] = re.compile(t["begin_tag"])
-        t["item_co"] = re.compile(t["item"])
+        t["item"]["re_co"] = [re.compile(x) for x in t["item"]["re"]]
         t["item_repl_co"] = [re.compile(x) for x in t["item_repl"]]
     return config
 

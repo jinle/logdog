@@ -21,10 +21,15 @@ config = {
     "tastes": [
         {
             "name": "system-crash",
-            "begin_tag": r"I_DO_NOT_KNOW",
+            "begin_tag": r"FATAL EXCEPTION IN SYSTEM PROCESS:",
             "key_tag": r"FATAL EXCEPTION IN SYSTEM PROCESS:",
             "line_tag": [r"AndroidRuntime:"],
-            "item": r"I_DO_NOT_KNOW",
+            "item": {
+                "proc_name": "system_app",
+                "re": [
+                    r"FATAL EXCEPTION IN SYSTEM PROCESS:.*\nAndroidRuntime: (?P<ex_name>.*?): (?P<ex_desc>.*)"
+                ]
+            },
             "item_repl": [r"I_DO_NOT_KNOW"]
         },
         {
@@ -32,7 +37,11 @@ config = {
             "begin_tag": r"(\*\*\* ){15}\*\*\*",
             "key_tag": r"pid:.*tid:.*name:.*>>>.*<<<",
             "line_tag": [r"DEBUG   :", r"AEE/AED :"],
-            "item": r"pid:.*tid:.*name:.*>>> (?P<proc_name>.*) <<<\n.* signal .*?\((?P<ex_name>\w+)\), code .*?\((?P<ex_desc>.+)\)",
+            "item": {
+                "re": [
+                    r"pid:.*tid:.*name:.*>>> (?P<proc_name>.*) <<<\n.* signal .*?\((?P<ex_name>\w+)\), code .*?\((?P<ex_desc>.+)\)"
+                ]
+            },
             "item_repl": [r"pid: (?P<pid>\d+), tid: (?P<tid>\d+), name:.*",
                           r"signal .*, code .*, fault addr (?P<addr>\w+)",
                           r"Build fingerprint: '(?P<fingerprint>.*)'",
@@ -44,7 +53,11 @@ config = {
             "begin_tag": r"FATAL EXCEPTION:",
             "key_tag": r"FATAL EXCEPTION:",
             "line_tag": ["AndroidRuntime:"],
-            "item": r"AndroidRuntime: Process: (?P<proc_name>.*),.*\nAndroidRuntime: (?P<ex_name>.*?): (?P<ex_desc>.*)",
+            "item": {
+                "re": [
+                    r"AndroidRuntime: Process: (?P<proc_name>.*),.*\nAndroidRuntime: (?P<ex_name>.*?): (?P<ex_desc>.*)"
+                ]
+            },
             "item_repl": [r"AndroidRuntime: Process: .*,.PID: (?P<pid>\d+)"]
         }
 
