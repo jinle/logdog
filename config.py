@@ -35,7 +35,8 @@ config = {
             "item": r"pid:.*tid:.*name:.*>>> (?P<proc_name>.*) <<<\n.* signal .*?\((?P<ex_name>\w+)\), code .*?\((?P<ex_desc>.+)\)",
             "item_repl": [r"pid: (?P<pid>\d+), tid: (?P<tid>\d+), name:.*",
                           r"signal .*, code .*, fault addr (?P<addr>\w+)",
-                          r"Build fingerprint: '(?P<fingerprint>.*)'"],
+                          r"Build fingerprint: '(?P<fingerprint>.*)'",
+                          r"Tombstone written to: .*/tombstone_(?P<id>\d\d)"],
             "method_repl": "native_crash_repl"
         },
         {
