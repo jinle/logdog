@@ -20,28 +20,31 @@ config = {
     },
     "tastes": [
         {
-            "type": "logcat",
-            "keystr": r"FATAL EXCEPTION IN SYSTEM PROCESS",
+            "name": "system-crash",
+            "begin_tag": r"I_DO_NOT_KNOW",
+            "key_tag": r"FATAL EXCEPTION IN SYSTEM PROCESS:",
             "line_tag": "AndroidRuntime:",
             "item": r"I_DO_NOT_KNOW",
-            "item_repl": r"I_DO_NOT_KNOW",
-            "desc": "system_server进程崩溃"
+            "item_repl": [r"I_DO_NOT_KNOW"]
         },
         {
-            "type": "logcat",
-            "keystr": r"pid:.*tid:.*name:.*>>>.*<<<",
+            "name": "native-crash",
+            "begin_tag": r"(\*\*\* ){15}\*\*\*",
+            "key_tag": r"pid:.*tid:.*name:.*>>>.*<<<",
             "line_tag": "DEBUG   :",
             "item": r"pid:.*tid:.*name:.*>>> (?P<proc_name>.*) <<<\n.* signal .*?\((?P<ex_name>\w+)\), code .*?\((?P<ex_desc>.+)\)",
-            "item_repl": r"pid: (?P<pid>\d+), tid: (?P<tid>\d+), name:.*",
-            "desc": "native crash"
+            "item_repl": [r"pid: (?P<pid>\d+), tid: (?P<tid>\d+), name:.*",
+                          r"signal .*, code .*, fault addr (?P<addr>\w+)",
+                          r"Build fingerprint: '(?P<fingerprint>.*)'"],
+            "method_repl": "native_crash_repl"
         },
         {
-            "type": "logcat",
-            "keystr": r"FATAL EXCEPTION:",
+            "name": "app-crash",
+            "begin_tag": r"FATAL EXCEPTION:",
+            "key_tag": r"FATAL EXCEPTION:",
             "line_tag": "AndroidRuntime:",
             "item": r"AndroidRuntime: Process: (?P<proc_name>.*),.*\nAndroidRuntime: (?P<ex_name>.*?): (?P<ex_desc>.*)",
-            "item_repl": r"AndroidRuntime: Process: .*,.PID: (?P<pid>\d+)",
-            "desc": "java crash"
+            "item_repl": [r"AndroidRuntime: Process: .*,.PID: (?P<pid>\d+)"]
         }
 
     ]

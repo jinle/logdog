@@ -8,8 +8,10 @@
 import sys
 import re
 import json
+import array
 from optparse import OptionParser
 from collections import defaultdict
+from operator import methodcaller
 from queue import Queue
 from threading import Thread
 
@@ -62,7 +64,7 @@ class LogDog:
         tastes = self.config["tastes"]
         for line in fobj:
             for t in tastes:
-                if re.search(t["keystr_co"], line):
+                if re.search(t["begin_tag_co"], line):
                     bone_text = []
                     bone_text.append(line)
                     # 找到所有续行
@@ -81,7 +83,7 @@ class LogDog:
         '''
         是否是bone_text的续行
 
-        如果tast.line_tag能够被line匹配，并且不能被所有tasts[x].keystr匹配，则返回True，否则返回False
+        如果tast.line_tag能够被line匹配，并且不能被所有tasts[x].line_tag匹配，则返回True，否则返回False
         '''
 
         if not re.search(tast["line_tag"], line):
@@ -89,7 +91,7 @@ class LogDog:
 
         tastes = self.config["tastes"]
         for t in tastes:
-            if re.search(t["keystr_co"], line):
+            if re.search(t["begin_tag_co"], line):
                 return False
 
         return True
@@ -115,22 +117,40 @@ class LogDog:
         return "".join(new_text)
 
     def _remove_text_chip(self, text, taste):
-        match = re.search(taste["item_repl_co"], text)
-        if match:
-            import array
-            arr_text = array.array("u", text)
-            spans = match.regs
-            item_repl_co = taste["item_repl_co"]
-            groupdict = dict(zip(item_repl_co.groupindex.values(), item_repl_co.groupindex.keys()))
-            for i in range(len(spans) - 1, 0, -1):
-                arr_text[slice(*spans[i])] = array.array("u", "<" + groupdict[i] + ">")
-            return arr_text.tounicode()
+        for x in taste["item_repl_co"]:
+            match = re.search(x, text)
+            if match:
+                arr_text = array.array("u", text)
+                spans = match.regs
+                groupdict = dict(zip(x.groupindex.values(), x.groupindex.keys()))
+                for i in range(len(spans) - 1, 0, -1):
+                    arr_text[slice(*spans[i])] = array.array("u", "<" + groupdict[i] + ">")
+                text = arr_text.tounicode()
         return text
 
     def _parse_bone_item(self, text, taste):
         match = re.search(taste["item_co"], "".join(text))
         if match:
             return match.groupdict()
+
+    def native_crash_repl(self, text, taste):
+        text_list = text.split("\n")
+        start_co = re.compile(r"signal.*, code.*, fault addr")
+        end_co = re.compile(r"backtrace:$")
+        start = 0
+        end = 0
+        for no, line in enumerate(text_list):
+            if start == 0 and re.search(start_co, line):
+                start = no
+            if end == 0 and re.search(end_co, line):
+                end = no
+            if start != 0 and end != 0:
+                break
+        for i in range(end - 1, start, -1):
+            if text_list[i].find("    ") > 0:
+                del text_list[i]
+
+        return "\n".join(text_list)
 
     def parse_bone(self, **kargs):
         while True:
@@ -149,6 +169,10 @@ class LogDog:
             # print(notime_text)
             new_text = self._remove_text_chip(notime_text, taste)
             # print(new_text)
+            if "method_repl" in taste:
+                if getattr(self, taste["method_repl"]):
+                    new_text = methodcaller("native_crash_repl", new_text, taste)(self)
+
             items = self._parse_bone_item(new_text, taste)
             # print(items)
             bone = Bone(new_text, time_stamp, **items)
@@ -193,9 +217,9 @@ def init_config(config):
 
     tastes = config["tastes"]
     for t in tastes:
-        t["keystr_co"] = re.compile(t["keystr"])
+        t["begin_tag_co"] = re.compile(t["begin_tag"])
         t["item_co"] = re.compile(t["item"])
-        t["item_repl_co"] = re.compile(t["item_repl"])
+        t["item_repl_co"] = [re.compile(x) for x in t["item_repl"]]
     return config
 
 
