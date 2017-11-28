@@ -1,21 +1,14 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-
-# logdog --upload-to-server -o result.txt f1.log f2.log
-# logcat | logdog
-
 import sys
 import re
-import json
 import array
 from optparse import OptionParser
 from collections import defaultdict
 from operator import methodcaller
 from queue import Queue
 from threading import Thread
-
-import config
 
 
 class WrapFile:
@@ -53,12 +46,31 @@ class Counter:
 
 class LogDog:
 
-    def __init__(self, config):
+    def __init__(self):
         self.q = Queue()
-        self.config = config
         self.counter = Counter()
 
+        # import json
         # print(json.dumps(self.config, indent=4, default=lambda x: repr(x)))
+
+    def load_config(self):
+
+        from config import config
+
+        logtype = config["logtype"]
+        logtype["charact_co"] = re.compile(logtype["charact"])
+        logtype["time_co"] = re.compile(logtype["time"])
+
+        tastes = config["tastes"]
+        for t in tastes:
+            t["begin_tag_co"] = re.compile(t["begin_tag"])
+            if "end_tag" in t:
+                t["end_tag_co"] = re.compile(t["end_tag"])
+            t["item"]["re_co"] = [re.compile(x) for x in t["item"]["re"]]
+            t["item_repl_co"] = [re.compile(x) for x in t["item_repl"]]
+
+        self.config = config
+        return True
 
     def search(self, fobj, callback=None):
         tastes = self.config["tastes"]
@@ -219,22 +231,6 @@ class Bone(object):
         return self.text == other.text
 
 
-def init_config(config):
-
-    logtype = config["logtype"]
-    logtype["charact_co"] = re.compile(logtype["charact"])
-    logtype["time_co"] = re.compile(logtype["time"])
-
-    tastes = config["tastes"]
-    for t in tastes:
-        t["begin_tag_co"] = re.compile(t["begin_tag"])
-        if "end_tag" in t:
-            t["end_tag_co"] = re.compile(t["end_tag"])
-        t["item"]["re_co"] = [re.compile(x) for x in t["item"]["re"]]
-        t["item_repl_co"] = [re.compile(x) for x in t["item_repl"]]
-    return config
-
-
 def parse_args():
     parser = OptionParser(usage="%prog [optinos] [logcat.txt ...]")
     parser.add_option("-u", "--upload-result",
@@ -262,8 +258,6 @@ def main():
         print("0.1.0")
         exit(0)
 
-    conf = init_config(config.config)
-
     outfobj = sys.stdout
     try:
         if not (options.outfile is None):
@@ -272,7 +266,9 @@ def main():
         print(ex, file=sys.stderr)
         exit(1)
 
-    logdog = LogDog(conf)
+    logdog = LogDog()
+    logdog.load_config()
+
     proc = Thread(target=logdog.parse_bone)
     proc.start()
 
