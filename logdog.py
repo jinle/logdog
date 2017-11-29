@@ -17,7 +17,7 @@ except ImportError:
 from codecs import open
 
 
-class WrapFile:
+class WrapIter:
     """对迭代器进行包装，使迭代器支持修改操作
 
 
@@ -295,11 +295,11 @@ def main():
 
     try:
         if len(args) == 0:
-            logdog.search(WrapFile(sys.stdin), logdog.put_queue)
+            logdog.search(WrapIter(sys.stdin), logdog.put_queue)
         else:
             for fname in args:
                 with open(fname, "r", encoding="utf-8") as f:
-                    logdog.search(WrapFile(f), logdog.put_queue)
+                    logdog.search(WrapIter(f), logdog.put_queue)
     except Exception as ex:
         print(ex, file=sys.stderr)
 

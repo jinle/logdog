@@ -6,7 +6,7 @@ import unittest
 from logdog import *
 
 
-class WrapFileTest(unittest.TestCase):
+class WrapIterTest(unittest.TestCase):
 
     def setUp(self):
         with open("test.txt", "w") as f:
@@ -18,7 +18,7 @@ class WrapFileTest(unittest.TestCase):
 
     def test_wrap_file(self):
         with open("test.txt", "r") as f:
-            fobj = WrapFile(f)
+            fobj = WrapIter(f)
             self.assertEqual(next(fobj), "line1\n")
             fobj.put("newline")
             self.assertEqual(next(fobj), "newline")
@@ -28,7 +28,7 @@ class WrapFileTest(unittest.TestCase):
             self.assertEqual(next(fobj), "line3\n")
 
     def test_wrap_iter(self):
-        it = WrapFile(iter([1, 2, 3]))
+        it = WrapIter(iter([1, 2, 3]))
         self.assertEqual(next(it), 1)
         it.put("new")
         self.assertEqual(next(it), "new")
