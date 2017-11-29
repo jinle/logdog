@@ -1,14 +1,20 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
+from __future__ import print_function
+
 import sys
 import re
 import array
 from optparse import OptionParser
 from collections import defaultdict
 from operator import methodcaller
-from queue import Queue
 from threading import Thread
+try:
+    from queue import Queue
+except ImportError:
+    from Queue import Queue
+from codecs import open
 
 
 class WrapFile:
@@ -27,6 +33,14 @@ class WrapFile:
 
         if self.line is None:
             return self.fobj.__next__()
+        else:
+            x, self.line = self.line, None
+            return x
+
+    def next(self):
+
+        if self.line is None:
+            return next(self.fobj)
         else:
             x, self.line = self.line, None
             return x
@@ -142,7 +156,7 @@ class LogDog:
                 spans = match.regs
                 groupdict = dict(zip(x.groupindex.values(), x.groupindex.keys()))
                 for i in range(len(spans) - 1, 0, -1):
-                    arr_text[slice(*spans[i])] = array.array("u", "<" + groupdict[i] + ">")
+                    arr_text[slice(*spans[i])] = array.array("u", u"<" + groupdict[i] + u">")
                 text = arr_text.tounicode()
         return text
 
@@ -261,7 +275,7 @@ def main():
     outfobj = sys.stdout
     try:
         if not (options.outfile is None):
-            outfobj = open(options.outfile, "wt")
+            outfobj = open(options.outfile, mode="w", encoding="utf-8")
     except Exception as ex:
         print(ex, file=sys.stderr)
         exit(1)
@@ -277,7 +291,7 @@ def main():
             logdog.search(WrapFile(sys.stdin), logdog.put_queue)
         else:
             for fname in args:
-                with open(fname, "rt", encoding="utf-8") as f:
+                with open(fname, "r", encoding="utf-8") as f:
                     logdog.search(WrapFile(f), logdog.put_queue)
     except Exception as ex:
         print(ex, file=sys.stderr)
