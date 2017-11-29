@@ -18,6 +18,10 @@ from codecs import open
 
 
 class WrapFile:
+    """对迭代器进行包装，使迭代器支持修改操作
+
+    
+    """
 
     def __init__(self, fobj):
         self.fobj = fobj
@@ -38,7 +42,7 @@ class WrapFile:
             return x
 
     def next(self):
-
+        '''兼容Python2：实现迭代器'''
         if self.line is None:
             return next(self.fobj)
         else:

@@ -39,13 +39,16 @@ config = {
             "line_tag": [r"DEBUG   :", r"AEE/AED :"],
             "item": {
                 "re": [
-                    r"pid:.*tid:.*name:.*>>> (?P<proc_name>.*) <<<\n.* signal .*?\((?P<ex_name>\w+)\), code .*?\((?P<ex_desc>.+)\)"
+                    r"pid:.*tid:.*name:.*>>> (?P<proc_name>.*) <<<",
+                    r".* signal .*?\((?P<ex_name>\w+)\), code .*?\((?P<ex_desc>.+)\)"
                 ]
             },
-            "item_repl": [r"pid: (?P<pid>\d+), tid: (?P<tid>\d+), name:.*",
-                          r"signal .*, code .*, fault addr (?P<addr>\w+)",
-                          r"Build fingerprint: '(?P<fingerprint>.*)'",
-                          r"Tombstone written to: .*/tombstone_(?P<id>\d\d)"],
+            "item_repl": [
+                r"pid: (?P<pid>\d+), tid: (?P<tid>\d+), name:.*",
+                r"signal .*, code .*, fault addr (?P<addr>\w+)",
+                r"Build fingerprint: '(?P<fingerprint>.*)'",
+                r"Tombstone written to: .*/tombstone_(?P<id>\d\d)"
+            ],
             "method_repl": "native_crash_repl"
         },
         {
@@ -73,9 +76,10 @@ config = {
                     r"ActivityManager: Reason: (?P<ex_name>.*?) \(.*\)"
                 ]
             },
-            "item_repl": [r"ActivityManager: PID: (?P<pid>\d+)",
-                          r"ActivityManager: Reason: .* \((?P<reason_detail>.*)\)"]
-
+            "item_repl": [
+                r"ActivityManager: PID: (?P<pid>\d+)",
+                r"ActivityManager: Reason: .* \((?P<reason_detail>.*)\)"
+            ]
         }
     ]
 }
