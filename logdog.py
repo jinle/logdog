@@ -18,9 +18,11 @@ from codecs import open
 
 
 class WrapIter:
-    """对迭代器进行包装，使迭代器支持修改操作
+    """对迭代器进行包装，使迭代器支恢复操作
 
-
+    在本项目中，每次从file对象中获取一行文本，以判定此行文本与之前的文本是否属于同一个异常信息．
+    当读取到一行文本不属于之前的异常信息时，我们希望把这行文本再恢复到迭代器中，以便下次扫描时，
+    可以重新读取完整的文本．
     """
 
     def __init__(self, fobj):
@@ -51,6 +53,13 @@ class WrapIter:
 
 
 class Counter:
+    '''对扫描到的异常信息(Bone对象)进行数量统计
+
+    如果一个异常在日志中出现N次，那么其异常信息是相同的，但每次的时间戳是不一样的，其统计次数为N．
+    如果由于某中原因出现了异常信息及时间戳完全一样的bone（日志重复），则只应该统计1次．
+    所有异常文本相同的bone对应一个列表，列表中保存了这些bone的时间戳，去除重复的时间戳后的个数，
+    即为统计结果．
+    '''
 
     def __init__(self):
         self.dict = defaultdict(list)
@@ -63,6 +72,12 @@ class Counter:
 
 
 class LogDog:
+    """对日志进行扫描，根据taste在日志中寻找bone，并输出统计结果
+
+    由两个线程构成，搜索线程（主线程）和分析统计线程．
+    搜索线程根据taste提供的特征进行日志中搜索taste，将搜索到的异常信放入queue中
+    分析统计线程从queue中取得异常信息，进行更为精确的匹配和统计．
+    """
 
     def __init__(self):
         self.q = Queue()
@@ -166,7 +181,7 @@ class LogDog:
 
     def _parse_bone_item(self, text, taste):
         item = taste["item"]
-        result = {k: v for k, v in item.items() if k not in ["re", "re_co"]}
+        result = {k: v for k, v in item.items() if not k in ["re", "re_co"]}
 
         for x in item["re_co"]:
             match = re.search(x, text)
@@ -175,6 +190,11 @@ class LogDog:
         return result
 
     def native_crash_repl(self, text, taste):
+        """处理native-crash日志中出现的内存地址等随机数字
+
+        目前处理方式是删除这些行
+        TODO(jinle): 将内存地址这样的随机数字替换为<addr>
+        """
         text_list = text.split("\n")
         start_co = re.compile(r"signal.*, code.*, fault addr")
         end_co = re.compile(r"backtrace:$")
@@ -290,8 +310,9 @@ def main():
     logdog = LogDog()
     logdog.load_config()
 
-    proc = Thread(target=logdog.parse_bone)
-    proc.start()
+    # 启动分析统计线程
+    thr = Thread(target=logdog.parse_bone)
+    thr.start()
 
     try:
         if len(args) == 0:
@@ -303,9 +324,11 @@ def main():
     except Exception as ex:
         print(ex, file=sys.stderr)
 
+    # 日志文件搜索结束,请求分析统计线程退出
     logdog.quit_parse()
-    proc.join()
+    thr.join()
 
+    # 输出结果
     logdog.print_result(outfobj)
 
 
