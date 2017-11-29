@@ -20,7 +20,7 @@ from codecs import open
 class WrapFile:
     """对迭代器进行包装，使迭代器支持修改操作
 
-    
+
     """
 
     def __init__(self, fobj):
@@ -247,6 +247,9 @@ class Bone(object):
 
     def __eq__(self, other):
         return self.text == other.text
+
+    def __ne__(self, other):
+        return self.text != other.text
 
 
 def parse_args():
