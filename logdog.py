@@ -105,7 +105,7 @@ class LogDog:
         self.config = config
         return True
 
-    def search(self, fobj, callback=None):
+    def _search(self, fobj, callback):
         tastes = self.config["tastes"]
         for line in fobj:
             for t in tastes:
@@ -123,6 +123,16 @@ class LogDog:
                     if not (callback is None):
                         callback((bone_text, t))
                     break
+
+    def search(self, fobj, callback):
+        if isinstance(fobj, str):
+            try:
+                with open(fobj, "r", encoding="utf-8") as f:
+                    self._search(WrapIter(f), callback)
+            except Exception as ex:
+                print(ex, file=sys.stderr)
+        else:
+            self._search(WrapIter(fobj), callback)
 
     def _is_tag_line(self, line, tast):
         '''
@@ -314,15 +324,11 @@ def main():
     thr = Thread(target=logdog.parse_bone)
     thr.start()
 
-    try:
-        if len(args) == 0:
-            logdog.search(WrapIter(sys.stdin), logdog.put_queue)
-        else:
-            for fname in args:
-                with open(fname, "r", encoding="utf-8") as f:
-                    logdog.search(WrapIter(f), logdog.put_queue)
-    except Exception as ex:
-        print(ex, file=sys.stderr)
+    if len(args) == 0:
+        logdog.search(sys.stdin, logdog.put_queue)
+    else:
+        for fname in args:
+            logdog.search(fname, logdog.put_queue)
 
     # 日志文件搜索结束,请求分析统计线程退出
     logdog.quit_parse()
