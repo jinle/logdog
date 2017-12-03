@@ -139,6 +139,7 @@ class LogDog:
 
     def search(self, fobj):
         callback = self.put_queue
+
         if isinstance(fobj, str):
             try:
                 with open(fobj, "r", encoding="utf-8") as f:
@@ -337,7 +338,6 @@ def main():
     else:
         for fname in args:
             logdog.search(fname)
-
 
     logdog.stop()
     # 输出结果
