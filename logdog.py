@@ -67,6 +67,9 @@ class Counter:
     def put(self, obj):
         self.dict[obj].append(obj.time_stamp)
 
+    def clear(self):
+        self.dict = defaultdict(list)
+
     def result(self):
         return {key: len(set(value)) for key, value in self.dict.items()}
 
@@ -105,7 +108,17 @@ class LogDog:
         self.config = config
         return True
 
-    def search(self, fobj, callback=None):
+    def start(self):
+        # 启动分析统计线程
+        self.thr = Thread(target=self.parse_bone)
+        self.thr.start()
+
+    def stop(self):
+        # 日志文件搜索结束,请求分析统计线程退出
+        self.q.put(("QUIT", None))
+        self.thr.join()
+
+    def _search(self, fobj, callback):
         tastes = self.config["tastes"]
         for line in fobj:
             for t in tastes:
@@ -123,6 +136,17 @@ class LogDog:
                     if not (callback is None):
                         callback((bone_text, t))
                     break
+
+    def search(self, fobj):
+        callback = self.put_queue
+        if isinstance(fobj, str):
+            try:
+                with open(fobj, "r", encoding="utf-8") as f:
+                    self._search(WrapIter(f), callback)
+            except Exception as ex:
+                print(ex, file=sys.stderr)
+        else:
+            self._search(WrapIter(fobj), callback)
 
     def _is_tag_line(self, line, tast):
         '''
@@ -239,9 +263,6 @@ class LogDog:
             self.counter.put(bone)
         return 0
 
-    def quit_parse(self):
-        self.q.put(("QUIT", None))
-
     def print_result(self, fobj):
         for key, value in self.counter.result().items():
             print("=" * 100, file=fobj)
@@ -309,25 +330,16 @@ def main():
 
     logdog = LogDog()
     logdog.load_config()
+    logdog.start()
 
-    # 启动分析统计线程
-    thr = Thread(target=logdog.parse_bone)
-    thr.start()
+    if len(args) == 0:
+        logdog.search(sys.stdin)
+    else:
+        for fname in args:
+            logdog.search(fname)
 
-    try:
-        if len(args) == 0:
-            logdog.search(WrapIter(sys.stdin), logdog.put_queue)
-        else:
-            for fname in args:
-                with open(fname, "r", encoding="utf-8") as f:
-                    logdog.search(WrapIter(f), logdog.put_queue)
-    except Exception as ex:
-        print(ex, file=sys.stderr)
 
-    # 日志文件搜索结束,请求分析统计线程退出
-    logdog.quit_parse()
-    thr.join()
-
+    logdog.stop()
     # 输出结果
     logdog.print_result(outfobj)
 
