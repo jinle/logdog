@@ -87,10 +87,6 @@ def sessin(*files):
 
 class LogDogTest(unittest.TestCase):
 
-    # def __init__(self):
-    #     super(unittest.TestCase, self).__init__()
-    #     self.logdog = LogDog()
-
     def setUp(self):
         self.logdog = LogDog()
         self.logdog.load_config()
@@ -102,17 +98,16 @@ class LogDogTest(unittest.TestCase):
     def test_app_anr_mtk_1(self):
         result = self.logdog.counter.result()
         self.assertEqual(len(result), 1)
-        k, v = result.items()[0]
+        k, v = list(result.items())[0]
         self.assertEqual(k.proc_name, "com.qiku.eyemode")
         self.assertEqual(k.ex_name, "Broadcast of Intent { act=android.intent.action.SCREEN_OFF flg=0x50000010 }")
         self.assertEqual(v, 1)
-
 
     @sessin("extras/log/app-anr-mtk-2.txt")
     def test_app_anr_mtk_2(self):
         result = self.logdog.counter.result()
         self.assertEqual(len(result), 1)
-        k, v = result.items()[0]
+        k, v = list(result.items())[0]
         self.assertEqual(k.proc_name, "com.google.android.gms.persistent")
         self.assertEqual(k.ex_name, "executing service com.google.android.gms/com.google.android.location.reporting.service.DispatchingService")
         self.assertEqual(v, 1)
@@ -121,7 +116,7 @@ class LogDogTest(unittest.TestCase):
     def test_app_anr_google_1(self):
         result = self.logdog.counter.result()
         self.assertEqual(len(result), 1)
-        k, v = result.items()[0]
+        k, v = list(result.items())[0]
         self.assertEqual(k.proc_name, "com.android.development")
         self.assertEqual(k.ex_name, "Input dispatching timed out")
         self.assertEqual(v, 1)
@@ -129,7 +124,8 @@ class LogDogTest(unittest.TestCase):
     @sessin("extras/log/app-anr-mtk-2.txt", "extras/log/app-anr-google-1.txt", "extras/log/app-anr-google-1.txt")
     def test_app_anr_comb_1(self):
         result = self.logdog.counter.result()
-        bones, counters = result.keys(), result.values()
+        bones = result.keys()
+        counters = list(result.values())
         self.assertEqual(len(result), 2)
         self.assertIn("com.google.android.gms.persistent", [x.proc_name for x in bones])
         self.assertIn("com.android.development", [x.proc_name for x in bones])
@@ -140,7 +136,7 @@ class LogDogTest(unittest.TestCase):
     def test_app_jvm_crash_google_1(self):
         result = self.logdog.counter.result()
         self.assertEqual(len(result), 1)
-        k, v = result.items()[0]
+        k, v = list(result.items())[0]
         self.assertEqual(k.proc_name, "com.android.development")
         self.assertEqual(k.ex_name, "com.android.development.BadBehaviorActivity$BadBehaviorException")
         self.assertEqual(v, 1)
@@ -149,7 +145,7 @@ class LogDogTest(unittest.TestCase):
     def test_app_jvm_crash_qcom_1(self):
         result = self.logdog.counter.result()
         self.assertEqual(len(result), 1)
-        k, v = result.items()[0]
+        k, v = list(result.items())[0]
         self.assertEqual(k.proc_name, "com.example.company.test_exception")
         self.assertEqual(k.ex_name, "java.lang.NullPointerException")
         self.assertEqual(v, 1)
@@ -158,7 +154,7 @@ class LogDogTest(unittest.TestCase):
     def test_app_jvm_crash_qcom_2(self):
         result = self.logdog.counter.result()
         self.assertEqual(len(result), 1)
-        k, v = result.items()[0]
+        k, v = list(result.items())[0]
         self.assertEqual(k.proc_name, "com.example.company.test_exception")
         self.assertEqual(k.ex_name, "java.lang.RuntimeException")
         self.assertEqual(v, 3)
@@ -167,10 +163,11 @@ class LogDogTest(unittest.TestCase):
     def test_app_jvm_crash_qcom_3(self):
         result = self.logdog.counter.result()
         self.assertEqual(len(result), 1)
-        k, v = result.items()[0]
+        k, v = list(result.items())[0]
         self.assertEqual(k.proc_name, "com.qiku.logsystem")
         self.assertEqual(k.ex_name, "java.lang.RuntimeException")
         self.assertEqual(v, 1)
+
 
 if __name__ == "__main__":
     unittest.main()
