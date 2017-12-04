@@ -1,0 +1,33 @@
+07-17 04:21:57.576 17403 17403 F art     : art/runtime/runtime.cc:432] 
+07-17 04:21:57.576 17403 17403 F art     : art/runtime/runtime.cc:432] 
+07-17 04:21:57.579 17403 17403 F libc    : Fatal signal 6 (SIGABRT), code -6 in tid 17403 (com.tencent.mm)
+07-17 04:21:57.580   382   382 W         : debuggerd: handling request: pid=17403 uid=10092 gid=10092 tid=17403
+07-17 04:21:57.576 17733 17733 W debuggerd: type=1400 audit(0.0:106142): avc: denied { search } for name="com.tencent.mm" dev="mmcblk0p48" ino=835734 scontext=u:r:debuggerd:s0 tcontext=u:object_r:app_data_file:s0:c512,c768 tclass=dir permissive=0
+07-17 04:21:57.665 17733 17733 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+07-17 04:21:57.665 17733 17733 F DEBUG   : Build fingerprint: '360/QK1711/QK1711:7.1.1/NMF26F/7.1.010.PX.170714.360_360_QK1711_CN:user/release-keys'
+07-17 04:21:57.665 17733 17733 F DEBUG   : Revision: '0'
+07-17 04:21:57.665 17733 17733 F DEBUG   : ABI: 'arm'
+07-17 04:21:57.665 17733 17733 F DEBUG   : pid: 17403, tid: 17403, name: com.tencent.mm  >>> com.tencent.mm <<<
+07-17 04:21:57.665 17733 17733 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+07-17 04:21:57.675 17733 17733 F DEBUG   : Abort message: 'art/runtime/gc/collector/mark_sweep.cc:415] Tried to mark 0xe7c8b690 not contained by any spaces'
+07-17 04:21:57.675 17733 17733 F DEBUG   :     r0 00000000  r1 000043fb  r2 00000006  r3 00000008
+07-17 04:21:57.675 17733 17733 F DEBUG   :     r4 ebbe258c  r5 00000006  r6 ebbe2534  r7 0000010c
+07-17 04:21:57.675 17733 17733 F DEBUG   :     r8 00000000  r9 0000000a  sl 000035e0  fp e8f04400
+07-17 04:21:57.675 17733 17733 F DEBUG   :     ip 0000000d  sp ffe80c60  lr e968f587  pc e9691e08  cpsr 200f0010
+07-17 04:21:57.685 17733 17733 F DEBUG   : 
+07-17 04:21:57.685 17733 17733 F DEBUG   : backtrace:
+07-17 04:21:57.686 17733 17733 F DEBUG   :     #00 pc 00049e08  /system/lib/libc.so (tgkill+12)
+07-17 04:21:57.686 17733 17733 F DEBUG   :     #01 pc 00047583  /system/lib/libc.so (pthread_kill+34)
+07-17 04:21:57.686 17733 17733 F DEBUG   :     #02 pc 0001d79d  /system/lib/libc.so (raise+10)
+07-17 04:21:57.686 17733 17733 F DEBUG   :     #03 pc 000192a1  /system/lib/libc.so (__libc_android_abort+34)
+07-17 04:21:57.686 17733 17733 F DEBUG   :     #04 pc 00017308  /system/lib/libc.so (abort+4)
+07-17 04:21:57.686 17733 17733 F DEBUG   :     #05 pc 0031bfd1  /system/lib/libart.so (_ZN3art7Runtime5AbortEPKc+328)
+07-17 04:21:57.686 17733 17733 F DEBUG   :     #06 pc 000b5c05  /system/lib/libart.so (_ZN3art10LogMessageD2Ev+1132)
+07-17 04:21:57.686 17733 17733 F DEBUG   :     #07 pc 0033fc27  /system/lib/libart.so (_ZN3artL40UnsafeLogFatalForThreadSuspendAllTimeoutEv+650)
+07-17 04:21:57.686 17733 17733 F DEBUG   :     #08 pc 0033f62d  /system/lib/libart.so (_ZN3art10ThreadList10SuspendAllEPKcb+412)
+07-17 04:21:57.686 17733 17733 F DEBUG   :     #09 pc 00410403  /system/lib/libart.so (_ZN2bm11BMArtMethod20EnableBlackMagicHookERN3art33ScopedObjectAccessAlreadyRunnableEPNS1_9ArtMethodEP8_jobject+494)
+07-17 04:21:57.687 17733 17733 F DEBUG   :     #10 pc 00411041  /system/lib/libart.so (_ZN2bm30BMagicHelper_insertKnifeNativeEP7_JNIEnvP7_jclassP8_jobjectS5_iS5_+424)
+07-17 04:21:57.687 17733 17733 F DEBUG   :     #11 pc 000221f5  /system/app/QK_BlackMagic/oat/arm/QK_BlackMagic.odex (offset 0x17000)
+07-17 04:21:57.822  2547  2547 E SogouIME: dongxiaohang mIsGameKeyboardMode 0
+07-17 04:21:57.931  1410  1410 W InputMethodManagerService: Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@9622c0f attribute=null, token = android.os.BinderProxy@9cb04f8
+

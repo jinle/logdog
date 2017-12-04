@@ -1,0 +1,71 @@
+11-25 21:58:06.192  1255  1255 W         : debuggerd: resuming target 4427
+11-25 21:58:06.761  4229  4254 E ActivityManager: ANR in com.android.development (com.android.development/.BadBehaviorActivity)
+11-25 21:58:06.761  4229  4254 E ActivityManager: PID: 6051
+11-25 21:58:06.761  4229  4254 E ActivityManager: Reason: Input dispatching timed out (Waiting to send non-key event because the touched window has not finished processing certain input events that were delivered to it over 500.0ms ago.  Wait queue length: 13.  Wait queue head age: 5537.3ms.)
+11-25 21:58:06.761  4229  4254 E ActivityManager: Load: 0.15 / 0.53 / 0.43
+11-25 21:58:06.761  4229  4254 E ActivityManager: CPU usage from 252014ms to 0ms ago (2017-11-25 21:53:53.446 to 2017-11-25 21:58:05.890):
+11-25 21:58:06.761  4229  4254 E ActivityManager:   4.2% 4229/system_server: 2.4% user + 1.7% kernel / faults: 15626 minor 272 major
+11-25 21:58:06.761  4229  4254 E ActivityManager:   1.6% 1297/surfaceflinger: 0.2% user + 1.4% kernel / faults: 5 minor
+11-25 21:58:06.761  4229  4254 E ActivityManager:   1% 4695/com.google.android.gms.persistent: 0.8% user + 0.1% kernel / faults: 9299 minor 218 major
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0.9% 4830/com.google.android.gms: 0.7% user + 0.1% kernel / faults: 21782 minor 365 major
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0.5% 4064/audioserver: 0.1% user + 0.4% kernel / faults: 129 minor 6 major
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0.3% 4770/com.google.android.apps.nexuslauncher: 0.2% user + 0.1% kernel / faults: 2661 minor 133 major
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0.3% 1299/adbd: 0% user + 0.2% kernel / faults: 4681 minor
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0.2% 4713/com.google.process.gapps: 0.2% user + 0% kernel / faults: 3750 minor
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0.2% 4524/com.android.phone: 0.1% user + 0.1% kernel / faults: 1448 minor 18 major
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0.2% 4387/com.android.systemui: 0.1% user + 0% kernel / faults: 148 minor 23 major
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0.1% 563/kswapd0: 0% user + 0.1% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0.1% 4067/netd: 0% user + 0.1% kernel / faults: 3070 minor
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0.1% 1334/kworker/u5:2: 0% user + 0.1% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 1247/logd: 0% user + 0% kernel / faults: 77 minor 1 major
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 4762/com.google.android.googlequicksearchbox:search: 0% user + 0% kernel / faults: 1581 minor 128 major
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 1333/kworker/u5:1: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 1296/servicemanager: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 8/rcu_preempt: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 4063/zygote: 0% user + 0% kernel / faults: 3163 minor
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 681/kworker/u4:2: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 1295/lmkd: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 1239/kworker/1:1H: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 1240/kworker/0:1H: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 1330/dmcrypt_write: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 1328/kworker/u5:0: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 3760/kworker/0:2: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 4572/wpa_supplicant: 0% user + 0% kernel / faults: 35 minor 1 major
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 17/kworker/u4:1: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 1343/jbd2/dm-0-8: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 1491/ipv6proxy: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 12/ksoftirqd/1: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 13/kworker/1:0: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 3595/logcat: 0% user + 0% kernel / faults: 1 minor
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 3658/logcat: 0% user + 0% kernel / faults: 1 minor
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 5009/com.android.printspooler: 0% user + 0% kernel / faults: 636 minor 1 major
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 3/ksoftirqd/0: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 4981/com.android.deskclock: 0% user + 0% kernel / faults: 672 minor 8 major
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 1449/dhcpclient: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 3659/grep: 0% user + 0% kernel / faults: 4 minor
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 4373/com.android.inputmethod.latin: 0% user + 0% kernel / faults: 361 minor 1 major
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 4427/sdcard: 0% user + 0% kernel / faults: 11 minor
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 6/kworker/u4:0: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 927/ueventd: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 1362/fingerprintd: 0% user + 0% kernel / faults: 10 minor
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 1501/hostapd: 0% user + 0% kernel / faults: 20 minor 4 major
+11-25 21:58:06.761  4229  4254 E ActivityManager:   0% 4530/com.android.settings: 0% user + 0% kernel / faults: 140 minor
+11-25 21:58:06.761  4229  4254 E ActivityManager:  +0% 5047/com.android.providers.calendar: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:  +0% 5095/android.process.acore: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:  +0% 5161/com.google.android.apps.maps: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:  +0% 5221/com.google.android.apps.photos: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:  +0% 5347/com.google.android.calendar: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:  +0% 5444/com.google.android.gm: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:  +0% 5700/com.google.android.talk: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:  +0% 5722/com.google.android.gms.unstable: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:  +0% 5767/com.google.android.youtube: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:  +0% 5855/com.android.cellbroadcastreceiver: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:  +0% 5902/com.google.android.music:main: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:  +0% 5979/com.google.android.talk:matchstick: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:  +0% 6051/com.android.development: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager:  +0% 6089/logcat: 0% user + 0% kernel
+11-25 21:58:06.761  4229  4254 E ActivityManager: 5.8% TOTAL: 3% user + 2
+11-25 21:58:06.818  1297  1312 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-25 21:58:06.853  4229  6230 D         : HostConnection::get() New Host Connection established 0x8c7e1300, tid 6230
+11-25 21:58:06.856  4229  6230 W         : Unrecognized GLES max version string in extensions: ANDROID_EMU_CHECKSUM_HELPER_v1 ANDROID_EMU_dma_v1 
+11-25 21:58:06.862  4229  6230 I OpenGLRenderer: Initialized EGL, version 1.4

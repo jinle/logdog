@@ -1,0 +1,17 @@
+04-16 17:40:25.982  5055  5255 I System.out: [socket]connected,localport:-1,remote:/1.192.194.132:80
+04-16 17:40:26.001 22557 22557 D AndroidRuntime: Shutting down VM
+04-16 17:40:26.003 22557 22557 E AndroidRuntime: FATAL EXCEPTION: main
+04-16 17:40:26.003 22557 22557 E AndroidRuntime: Process: com.example.company.test_exception, PID: 22557
+04-16 17:40:26.003 22557 22557 E AndroidRuntime: java.lang.NullPointerException: Attempt to invoke a virtual method on a null object reference
+04-16 17:40:26.003 22557 22557 E AndroidRuntime: 	at com.example.company.test_exception.MainActivity$1.onClick(MainActivity.java:31)
+04-16 17:40:26.003 22557 22557 E AndroidRuntime: 	at android.view.View.performClick(View.java:5706)
+04-16 17:40:26.003 22557 22557 E AndroidRuntime: 	at android.view.View$PerformClick.run(View.java:22530)
+04-16 17:40:26.003 22557 22557 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:751)
+04-16 17:40:26.003 22557 22557 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:95)
+04-16 17:40:26.003 22557 22557 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:154)
+04-16 17:40:26.003 22557 22557 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:6246)
+04-16 17:40:26.003 22557 22557 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+04-16 17:40:26.003 22557 22557 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:916)
+04-16 17:40:26.003 22557 22557 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:806)
+04-16 17:40:26.006  2823  4235 W ActivityManager:   Force finishing activity com.example.company.test_exception/.MainActivity
+04-16 17:40:26.017  2823  4235 D PowerManagerService: acquireWakeLockInternal: lock=58765600, flags=0x1, tag="*launch*", ws=WorkSource{10100}, uid=1000, pid=2823

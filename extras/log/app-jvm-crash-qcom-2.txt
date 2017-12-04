@@ -1,0 +1,57 @@
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: FATAL EXCEPTION: main
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: Process: com.example.company.test_exception, PID: 19104
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: java.lang.RuntimeException: Unable to start activity ComponentInfo{com.example.company.test_exception/com.example.company.test_exception.MainActivity}: java.lang.NullPointerException: Attempt to invoke a virtual method on a null object reference
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2721)
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2782)
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: 	at android.app.ActivityThread.-wrap12(ActivityThread.java)
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1515)
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:102)
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:154)
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:6246)
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:916)
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:806)
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: Caused by: java.lang.NullPointerException: Attempt to invoke a virtual method on a null object reference
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: 	at com.example.company.test_exception.MainActivity.onCreate(MainActivity.java:14)
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: 	at android.app.Activity.performCreate(Activity.java:6720)
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: 	at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1119)
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2674)
+04-16 11:41:52.995 19104 19104 E AndroidRuntime: 	... 9 more
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: FATAL EXCEPTION: main
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: Process: com.example.company.test_exception, PID: 19449
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: java.lang.RuntimeException: Unable to start activity ComponentInfo{com.example.company.test_exception/com.example.company.test_exception.MainActivity}: java.lang.NullPointerException: Attempt to invoke a virtual method on a null object reference
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2721)
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2782)
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: 	at android.app.ActivityThread.-wrap12(ActivityThread.java)
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1515)
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:102)
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:154)
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:6246)
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:916)
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:806)
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: Caused by: java.lang.NullPointerException: Attempt to invoke a virtual method on a null object reference
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: 	at com.example.company.test_exception.MainActivity.onCreate(MainActivity.java:14)
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: 	at android.app.Activity.performCreate(Activity.java:6720)
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: 	at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1119)
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2674)
+04-16 11:42:14.735 19449 19449 E AndroidRuntime: 	... 9 more
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: FATAL EXCEPTION: main
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: Process: com.example.company.test_exception, PID: 19825
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: java.lang.RuntimeException: Unable to start activity ComponentInfo{com.example.company.test_exception/com.example.company.test_exception.MainActivity}: java.lang.NullPointerException: Attempt to invoke a virtual method on a null object reference
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2721)
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2782)
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: 	at android.app.ActivityThread.-wrap12(ActivityThread.java)
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1515)
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:102)
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:154)
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:6246)
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:916)
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:806)
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: Caused by: java.lang.NullPointerException: Attempt to invoke a virtual method on a null object reference
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: 	at com.example.company.test_exception.MainActivity.onCreate(MainActivity.java:14)
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: 	at android.app.Activity.performCreate(Activity.java:6720)
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: 	at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1119)
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2674)
+04-16 11:42:59.251 19825 19825 E AndroidRuntime: 	... 9 more

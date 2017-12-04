@@ -1,0 +1,67 @@
+07-17 05:40:36.453  1410  1410 E ActivityManager: ANR in com.qiku.android.xtime (com.qiku.android.xtime/qiku.xtime.ui.showring.ShowRingActivity)
+07-17 05:40:36.453  1410  1410 E ActivityManager: PID: 16231
+07-17 05:40:36.453  1410  1410 E ActivityManager: Reason: Input dispatching timed out (Waiting to send non-key event because the touched window has not finished processing certain input events that were delivered to it over 500.0ms ago.  Wait queue length: 2.  Wait queue head age: 6007.6ms.)
+07-17 05:40:36.453  1410  1410 E ActivityManager: Load: 5.09 / 5.78 / 5.95
+07-17 05:40:36.453  1410  1410 E ActivityManager: CPU usage from 0ms to 5904ms later (2017-07-17 05:40:30.499 to 2017-07-17 05:40:36.403):
+07-17 05:40:36.453  1410  1410 E ActivityManager:   40% 1410/system_server: 26% user + 14% kernel / faults: 1562 minor 101 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   19% 483/surfaceflinger: 13% user + 5.9% kernel / faults: 272 minor 1 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   16% 27269/kworker/u16:9: 0% user + 16% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   8.6% 16993/com.qihoo.appstore: 5.7% user + 2.8% kernel / faults: 2946 minor 1 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   4.7% 16231/com.qiku.android.xtime: 3% user + 1.6% kernel / faults: 1014 minor 83 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   4% 16596/cn.kuwo.player: 2.8% user + 1.1% kernel / faults: 1038 minor 2 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   4% 19325/com.qihoo360.mobilesafe:GuardService: 2.3% user + 1.6% kernel / faults: 54 minor
+07-17 05:40:36.453  1410  1410 E ActivityManager:   3.8% 2041/com.android.systemui: 2.8% user + 1% kernel / faults: 1051 minor 9 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   3.5% 175/kswapd0: 0% user + 3.5% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   1.7% 2215/com.android.phone: 1.4% user + 0.3% kernel / faults: 1169 minor 28 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   3.3% 21830/kworker/u16:3: 0% user + 3.3% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.1% 2635/com.cloudsx.android.coreservice: 0.1% user + 0% kernel / faults: 1525 minor 21 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   2.2% 19885/com.qiku.logsystem: 1.5% user + 0.6% kernel / faults: 1023 minor 8 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   2% 323/mmc-cmdqd/0: 0% user + 2% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   2% 394/logd: 1.1% user + 0.8% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   1.8% 10817/kworker/u16:2: 0% user + 1.8% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   1.8% 12307/mdss_fb0: 0% user + 1.8% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   1.5% 2289/.dataservices: 0.8% user + 0.6% kernel / faults: 1166 minor 13 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 383/debuggerd64: 0% user + 0% kernel / faults: 143 minor 1 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 2580/com.qiku.multitask: 0% user + 0% kernel / faults: 1671 minor 1 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.1% 2620/com.qihoo360.android.location: 0% user + 0% kernel / faults: 1047 minor 2 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.1% 2648/com.qiku.configcenter: 0% user + 0% kernel / faults: 1130 minor 1 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 2607/com.qiku.android.safe: 0% user + 0% kernel / faults: 1375 minor 2 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 2664/com.qiku.smsbox: 0% user + 0% kernel / faults: 1545 minor 2 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 2677/com.quicinc.wbcserviceapp: 0% user + 0% kernel / faults: 1524 minor 3 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 2692/com.qualcomm.qti.services.secureui:sui_service: 0% user + 0% kernel / faults: 1770 minor 4 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.6% 316/cfinteractive: 0% user + 0.6% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 2595/com.wt.secret_code_manager: 0% user + 0% kernel / faults: 1049 minor 1 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.5% 7/rcu_preempt: 0% user + 0.5% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 382/debuggerd: 0% user + 0% kernel / faults: 239 minor 1 major
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.5% 516/audioserver: 0.1% user + 0.3% kernel / faults: 22 minor
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.2% 542/netd: 0% user + 0.2% kernel / faults: 38 minor
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.5% 2356/logcat: 0.3% user + 0.1% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.5% 5343/adbd: 0.1% user + 0.3% kernel / faults: 101 minor
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.3% 368/kworker/7:1H: 0% user + 0.3% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.3% 4574/VosTXThread: 0% user + 0.3% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 10/rcuop/0: 0% user + 0% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 45/rcuop/4: 0% user + 0% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 69/rcuop/7: 0% user + 0% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 496/cnd: 0% user + 0% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.1% 541/mediaserver: 0% user + 0.1% kernel / faults: 13 minor
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.1% 685/msm_irqbalance: 0% user + 0.1% kernel / faults: 1 minor
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.1% 1629/kworker/u16:8: 0% user + 0.1% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 2391/diag_mdlog: 0% user + 0% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.1% 2401/tcpdump: 0% user + 0.1% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 4575/VosRXThread: 0% user + 0% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 4595/wlan_logging_th: 0% user + 0% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.1% 5444/logcat: 0.1% user + 0% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 5450/com.android.commands.monkey: 0% user + 0% kernel / faults: 197 minor
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0.1% 12539/kworker/7:2: 0% user + 0.1% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 14251/kworker/u16:4: 0% user + 0% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 16646/cn.kuwo.player:service: 0% user + 0% kernel / faults: 3 minor
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 16986/kworker/4:0: 0% user + 0% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:   0% 27074/kworker/0:2H: 0% user + 0% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager:  +0% 17421/ping: 0% user + 0% kernel
+07-17 05:40:36.453  1410  1410 E ActivityManager: 29% TOTAL: 14% user + 12% kernel + 1.4% iowait + 0% irq + 0.4% softirq
+07-17 05:40:36.453  1410  1410 E ActivityManager: CPU usage from 4782ms to 5322ms later (2017-07-17 05:40:35.281 to 2017-07-17 05:40:35.822):
+07-17 05:40:36.453  1410  1410 E ActivityManager:   29% 48
+07-17 05:40:36.467  1410  1410 W ActivityManager: Scheduling restart of crashed service com.android.dialer/com.android.incallui.InCallServiceImpl in 1000ms
+07-17 05:40:36.522 19885 19885 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1361 android.content.ContextWrapper.startService:613 com.qiku.logsystem.services.ControlDispatchService.a:288 com.qiku.logsystem.a.a:19 com.qiku.lib.boradcastbus.BroadcastController.onReceive:27 
+07-17 05:40:36.568 19885 19885 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1361 android.content.ContextWrapper.startService:613 com.qiku.logsystem.bugreport.a.registerActions:48 java.lang.reflect.Method.invoke:-2 com.qiku.lib.boradcastbus.c.b:279 
+

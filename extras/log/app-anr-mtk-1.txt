@@ -1,0 +1,86 @@
+09-11 16:55:15.951125   408   408 I sn      : Fail to access err=2
+09-11 16:55:15.951426   408   408 I sn      : Fail to access err=2
+09-11 16:55:15.951492   408   408 I sn      : Fail to access err=2
+09-11 16:55:15.951521   408   408 I sn      : Check all possible paths
+09-11 16:55:15.979274  1364  1380 D ActivityManager: dumpStackTraces Full End:
+09-11 16:55:15.979393  1364  1380 D ActivityManager: dumptracesFile = /data/anr/traces.txt
+09-11 16:55:16.010197  1364  1380 E ActivityManager: ANR in com.qiku.eyemode
+09-11 16:55:16.010197  1364  1380 E ActivityManager: PID: 5237
+09-11 16:55:16.010197  1364  1380 E ActivityManager: Reason: Broadcast of Intent { act=android.intent.action.SCREEN_OFF flg=0x50000010 }
+09-11 16:55:16.010197  1364  1380 E ActivityManager: Load: 18.55 / 10.13 / 4.29
+09-11 16:55:16.010197  1364  1380 E ActivityManager: CPU usage from 1322ms to -7055ms ago:
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   15% 1364/system_server: 5.8% user + 10% kernel / faults: 3710 minor 2 major
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   4.4% 231/mmcqd/0: 0% user + 4.4% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   3.7% 8340/kworker/u20:7: 0% user + 3.7% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   2.5% 302/logd: 1.1% user + 1.3% kernel / faults: 3 minor
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   2.2% 370/mobile_log_d: 1.3% user + 0.9% kernel / faults: 65 minor
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   1.7% 203/hps_main: 0% user + 1.7% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   1.6% 273/jbd2/mmcblk0p32: 0% user + 1.6% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.7% 5237/com.qiku.eyemode: 0.3% user + 0.4% kernel / faults: 1660 minor 3 major
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   1.6% 11586/com.qihoo360.mobilesafe:GuardService: 1.1% user + 0.4% kernel / faults: 315 minor 4 major
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   1.5% 1754/com.qiku.powerengine:remote: 0.4% user + 1% kernel / faults: 222 minor
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.7% 62/cfinteractive: 0% user + 0.7% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.7% 1180/mtkrild: 0.1% user + 0.5% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.4% 1343/rilproxy: 0% user + 0.3% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.7% 1925/com.android.phone: 0.4% user + 0.2% kernel / faults: 19 minor
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.5% 331/surfaceflinger: 0.2% user + 0.3% kernel / faults: 41 minor
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.4% 980/viarild: 0.1% user + 0.3% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.2% 8341/com.qihoo.browser: 0.2% user + 0% kernel / faults: 1408 minor 3 major
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.2% 4/kworker/0:0: 0% user + 0.2% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.2% 11/migration/1: 0% user + 0.2% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.2% 95/pbm: 0% user + 0.2% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.1% 1036/gsm0710muxd: 0% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.2% 1539/com.android.systemui: 0.1% user + 0.1% kernel / faults: 27 minor
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.2% 1978/com.qiku.logsystem: 0% user + 0.2% kernel / faults: 12 minor
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.1% 3985/com.eg.android.AlipayGphone:push: 0% user + 0% kernel / faults: 1601 minor
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.2% 5636/com.eg.android.AlipayGphone: 0.1% user + 0.1% kernel / faults: 817 minor
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.1% 6/kworker/u20:0: 0% user + 0.1% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.1% 7/rcu_preempt: 0% user + 0.1% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 8/rcu_sched: 0% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.1% 10/migration/0: 0% user + 0.1% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 12/ksoftirqd/1: 0% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.1% 15/migration/2: 0% user + 0.1% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 16/ksoftirqd/2: 0% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 19/migration/3: 0% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 23/migration/4: 0% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.1% 54/kworker/u21:0: 0% user + 0.1% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 122/display_check_a: 0% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 192/migration/8: 0% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 197/kworker/u20:3: 0% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.1% 260/ueventd: 0% user + 0.1% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 311/migration/6: 0% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 329/lmkd: 0% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.1% 330/servicemanager: 0% user + 0.1% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.1% 376/aal: 0% user + 0.1% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 382/mtk_agpsd: 0% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.1% 393/fuelgauged: 0% user + 0.1% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 986/kworker/6:3: 0% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 1960/com.mediatek.ims: 0% user + 0% kernel / faults: 1 minor
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.1% 2063/com.qiku.magicball: 0.1% user + 0% kernel / faults: 57 minor
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 2909/volte_stack: 0% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0.1% 3092/ged_srv: 0% user + 0.1% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 3094/gas_srv: 0% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 5338/com.android.settings: 0% user + 0% kernel / faults: 43 minor
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   0% 9469/com.example.wakeup: 0% user + 0% kernel / faults: 2 minor
+09-11 16:55:16.010197  1364  1380 E ActivityManager:  +0% 11808/cp: 0% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager: 70% TOTAL: 7% user + 17% kernel + 45% iowait + 0% softirq
+09-11 16:55:16.010197  1364  1380 E ActivityManager: CPU usage from 6485ms to 7003ms later:
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   52% 11808/cp: 0% user + 52% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   24% 11586/com.qihoo360.mobilesafe:GuardService: 17% user + 6.9% kernel / faults: 311 minor 4 major
+09-11 16:55:16.010197  1364  1380 E ActivityManager:     22% 11725/daemon-handler-: 17% user + 5.2% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:     1.7% 11775/pool-1-thread-1: 0% user + 1.7% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   20% 1754/com.qiku.powerengine:remote: 6.3% user + 14% kernel / faults: 222 minor
+09-11 16:55:16.010197  1364  1380 E ActivityManager:     20% 1754/erengine:remote: 6.3% user + 14% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:   22% 1364/system_server: 12% user + 9.2% kernel / faults: 149 minor
+09-11 16:55:16.010197  1364  1380 E ActivityManager:     7.4% 1380/ActivityManager: 5.5% user + 1.8% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:     1.8% 1370/ReferenceQueueD: 1.8% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:     1.8% 1378/Binder_3: 1.8% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:     1.8% 1382/android.fg: 1.8% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:     1.8% 1474/PerfServiceMana: 0% user + 1.8% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:     1.8% 2029/Binder_A: 1.8% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:     1.8% 2037/Binder_B: 0% user + 1.8% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:     1.8% 2039/Binder_C: 1.8% user + 0% kernel
+09-11 16:55:16.010197  1364  1380 E ActivityManager:     1.8% 2071/Binder_E: 0% user + 1.8% kernel
+09-11 16:55:16.011046  1364  1380 E ActivityManager: get crashInfo fail.
+09-11 16:55:16.011821  1364  1380 I ActivityManager: Killing 5237:com.qiku.eyemode/u0a79 (adj 13): bg anr
+09-11 16:55:16.223087  1364  1380 E libprocessgroup: failed to kill 1 processes for processgroup 5237

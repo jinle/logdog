@@ -1,0 +1,28 @@
+11-25 21:51:00.653  3680  3680 I BadBehaviorActivity: Native crash pressed -- about to kill -11 self
+11-25 21:51:00.653  3680  3680 I Process : Sending signal. PID: 3680 SIG: 11
+11-25 21:51:00.653  3680  3680 F libc    : Fatal signal 11 (SIGSEGV), code 0, fault addr 0xe60 in tid 3680 (oid.development)
+11-25 21:51:00.660  1255  1255 W         : debuggerd: handling request: pid=3680 uid=10042 gid=10042 tid=3680
+11-25 21:51:00.670  1350  1399 W audio_hw_generic: Not supplying enough data to HAL, expected position 1940845 , only wrote 1940400
+11-25 21:51:00.689  3698  3698 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+11-25 21:51:00.689  3698  3698 F DEBUG   : Build fingerprint: 'google/sdk_google_phone_x86/generic_x86:7.1.1/NYC/4414732:userdebug/test-keys'
+11-25 21:51:00.689  3698  3698 F DEBUG   : Revision: '0'
+11-25 21:51:00.689  3698  3698 F DEBUG   : ABI: 'x86'
+11-25 21:51:00.689  3698  3698 F DEBUG   : pid: 3680, tid: 3680, name: oid.development  >>> com.android.development <<<
+11-25 21:51:00.689  3698  3698 F DEBUG   : signal 11 (SIGSEGV), code 0 (SI_USER), fault addr 0xe60
+11-25 21:51:00.689  3698  3698 F DEBUG   :     eax 00000000  ebx 00000e60  ecx 0000000b  edx 00000004
+11-25 21:51:00.689  3698  3698 F DEBUG   :     esi 00000e60  edi 0000000b
+11-25 21:51:00.689  3698  3698 F DEBUG   :     xcs 00000073  xds 0000007b  xes 0000007b  xfs 0000003b  xss 0000007b
+11-25 21:51:00.689  3698  3698 F DEBUG   :     eip a82db424  ebp 12d9a2d0  esp bfb81610  flags 00000296
+11-25 21:51:00.969  3698  3698 F DEBUG   : 
+11-25 21:51:00.969  3698  3698 F DEBUG   : backtrace:
+11-25 21:51:00.969  3698  3698 F DEBUG   :     #00 pc ffffe424  [vdso:a82db000] (__kernel_vsyscall+16)
+11-25 21:51:00.969  3698  3698 F DEBUG   :     #01 pc 00078d17  /system/lib/libc.so (kill+23)
+11-25 21:51:00.969  3698  3698 F DEBUG   :     #02 pc 000e70fa  /system/lib/libandroid_runtime.so (_Z29android_os_Process_sendSignalP7_JNIEnvP8_jobjectii+80)
+11-25 21:51:00.969  3698  3698 F DEBUG   :     #03 pc 01d4fc4e  /system/framework/x86/boot-framework.oat (offset 0x1585000) (android.os.Process.sendSignal+122)
+11-25 21:51:00.969  3698  3698 F DEBUG   :     #04 pc 00035492  /system/app/Development/oat/x86/Development.odex (offset 0x2f000)
+11-25 21:51:01.212  3680  3680 I Process : Sending signal. PID: 3680 SIG: 11
+11-25 21:51:01.214  1255  1255 W         : debuggerd: resuming target 3680
+11-25 21:51:01.215  1659  1677 I BootReceiver: Copying /data/tombstones/tombstone_02 to DropBox (SYSTEM_TOMBSTONE)
+11-25 21:51:01.222  1659  3704 W ActivityManager:   Force finishing activity com.android.development/.BadBehaviorActivity
+11-25 21:51:01.226  1659  3704 E JavaBinder: !!! FAILED BINDER TRANSACTION !!!  (parcel size = 104)
+11-25 21:51:01.227  1659  3704 W ActivityManager: Exception thrown during pause

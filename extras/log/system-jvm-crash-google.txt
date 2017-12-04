@@ -1,0 +1,9 @@
+11-25 21:53:41.082  1350  1400 W audio_hw_generic: Not supplying enough data to HAL, expected position 2681411 , only wrote 2528640
+11-25 21:53:43.976  1350  1399 W audio_hw_generic: Not supplying enough data to HAL, expected position 2528812 , only wrote 2528640
+11-25 21:53:43.985  1659  4056 E AndroidRuntime: *** FATAL EXCEPTION IN SYSTEM PROCESS: PowerManagerService.crash()
+11-25 21:53:43.985  1659  4056 E AndroidRuntime: java.lang.RuntimeException: Crashed by BadBehaviorActivity
+11-25 21:53:43.985  1659  4056 E AndroidRuntime: 	at com.android.server.power.PowerManagerService$5.run(PowerManagerService.java:2516)
+11-25 21:53:43.995  1659  4056 I Process : Sending signal. PID: 1659 SIG: 9
+11-25 21:53:44.051  1295  1295 I lowmemorykiller: ActivityManager disconnected
+11-25 21:53:44.051  1295  1295 I lowmemorykiller: Closing Activity Manager data connection
+11-25 21:53:44.054  1353  1353 E         : eof

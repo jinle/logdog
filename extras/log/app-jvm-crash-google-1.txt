@@ -1,0 +1,18 @@
+11-25 21:49:47.478  3540  3540 E AndroidRuntime: FATAL EXCEPTION: main
+11-25 21:49:47.478  3540  3540 E AndroidRuntime: Process: com.android.development, PID: 3540
+11-25 21:49:47.478  3540  3540 E AndroidRuntime: com.android.development.BadBehaviorActivity$BadBehaviorException: Whatcha gonna do, whatcha gonna do
+11-25 21:49:47.478  3540  3540 E AndroidRuntime: 	at com.android.development.BadBehaviorActivity$2.onClick(BadBehaviorActivity.java:175)
+11-25 21:49:47.478  3540  3540 E AndroidRuntime: 	at android.view.View.performClick(View.java:5637)
+11-25 21:49:47.478  3540  3540 E AndroidRuntime: 	at android.view.View$PerformClick.run(View.java:22429)
+11-25 21:49:47.478  3540  3540 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:751)
+11-25 21:49:47.478  3540  3540 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:95)
+11-25 21:49:47.478  3540  3540 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:154)
+11-25 21:49:47.478  3540  3540 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:6119)
+11-25 21:49:47.478  3540  3540 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+11-25 21:49:47.478  3540  3540 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:886)
+11-25 21:49:47.478  3540  3540 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:776)
+11-25 21:49:47.478  3540  3540 E AndroidRuntime: Caused by: java.lang.IllegalStateException: When they come for you
+11-25 21:49:47.478  3540  3540 E AndroidRuntime: 	... 10 more
+11-25 21:49:47.480  1350  1399 W audio_hw_generic: Not supplying enough data to HAL, expected position 976373 , only wrote 976320
+11-25 21:49:47.490  1659  1670 W ActivityManager:   Force finishing activity com.android.development/.BadBehaviorActivity
+11-25 21:49:47.559  1297  1312 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property

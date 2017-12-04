@@ -72,5 +72,105 @@ class BoneTest(unittest.TestCase):
         self.assertNotEqual(bone2_1, bone2_2)
 
 
+def sessin(*files):
+    def deco(func):
+        def wrap(self, *args, **kwargs):
+            self.logdog.counter.clear()
+            self.logdog.start()
+            for f in files:
+                self.logdog.search(f)
+            self.logdog.stop()
+            func(self, *args, **kwargs)
+        return wrap
+    return deco
+
+
+class LogDogTest(unittest.TestCase):
+
+    # def __init__(self):
+    #     super(unittest.TestCase, self).__init__()
+    #     self.logdog = LogDog()
+
+    def setUp(self):
+        self.logdog = LogDog()
+        self.logdog.load_config()
+
+    def tearDown(self):
+        pass
+
+    @sessin("extras/log/app-anr-mtk-1.txt")
+    def test_app_anr_mtk_1(self):
+        result = self.logdog.counter.result()
+        self.assertEqual(len(result), 1)
+        k, v = result.items()[0]
+        self.assertEqual(k.proc_name, "com.qiku.eyemode")
+        self.assertEqual(k.ex_name, "Broadcast of Intent { act=android.intent.action.SCREEN_OFF flg=0x50000010 }")
+        self.assertEqual(v, 1)
+
+
+    @sessin("extras/log/app-anr-mtk-2.txt")
+    def test_app_anr_mtk_2(self):
+        result = self.logdog.counter.result()
+        self.assertEqual(len(result), 1)
+        k, v = result.items()[0]
+        self.assertEqual(k.proc_name, "com.google.android.gms.persistent")
+        self.assertEqual(k.ex_name, "executing service com.google.android.gms/com.google.android.location.reporting.service.DispatchingService")
+        self.assertEqual(v, 1)
+
+    @sessin("extras/log/app-anr-google-1.txt")
+    def test_app_anr_google_1(self):
+        result = self.logdog.counter.result()
+        self.assertEqual(len(result), 1)
+        k, v = result.items()[0]
+        self.assertEqual(k.proc_name, "com.android.development")
+        self.assertEqual(k.ex_name, "Input dispatching timed out")
+        self.assertEqual(v, 1)
+
+    @sessin("extras/log/app-anr-mtk-2.txt", "extras/log/app-anr-google-1.txt", "extras/log/app-anr-google-1.txt")
+    def test_app_anr_comb_1(self):
+        result = self.logdog.counter.result()
+        bones, counters = result.keys(), result.values()
+        self.assertEqual(len(result), 2)
+        self.assertIn("com.google.android.gms.persistent", [x.proc_name for x in bones])
+        self.assertIn("com.android.development", [x.proc_name for x in bones])
+        self.assertEqual(counters[0], 1)
+        self.assertEqual(counters[1], 1)
+
+    @sessin("extras/log/app-jvm-crash-google-1.txt")
+    def test_app_jvm_crash_google_1(self):
+        result = self.logdog.counter.result()
+        self.assertEqual(len(result), 1)
+        k, v = result.items()[0]
+        self.assertEqual(k.proc_name, "com.android.development")
+        self.assertEqual(k.ex_name, "com.android.development.BadBehaviorActivity$BadBehaviorException")
+        self.assertEqual(v, 1)
+
+    @sessin("extras/log/app-jvm-crash-qcom-1.txt")
+    def test_app_jvm_crash_qcom_1(self):
+        result = self.logdog.counter.result()
+        self.assertEqual(len(result), 1)
+        k, v = result.items()[0]
+        self.assertEqual(k.proc_name, "com.example.company.test_exception")
+        self.assertEqual(k.ex_name, "java.lang.NullPointerException")
+        self.assertEqual(v, 1)
+
+    @sessin("extras/log/app-jvm-crash-qcom-2.txt")
+    def test_app_jvm_crash_qcom_2(self):
+        result = self.logdog.counter.result()
+        self.assertEqual(len(result), 1)
+        k, v = result.items()[0]
+        self.assertEqual(k.proc_name, "com.example.company.test_exception")
+        self.assertEqual(k.ex_name, "java.lang.RuntimeException")
+        self.assertEqual(v, 3)
+
+    @sessin("extras/log/app-jvm-crash-qcom-3.txt")
+    def test_app_jvm_crash_qcom_3(self):
+        result = self.logdog.counter.result()
+        self.assertEqual(len(result), 1)
+        k, v = result.items()[0]
+        self.assertEqual(k.proc_name, "com.qiku.logsystem")
+        self.assertEqual(k.ex_name, "java.lang.RuntimeException")
+        self.assertEqual(v, 1)
+
 if __name__ == "__main__":
     unittest.main()

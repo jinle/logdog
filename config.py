@@ -72,13 +72,15 @@ config = {
             "item": {
                 "ex_desc": None,
                 "re": [
-                    r"ActivityManager: ANR in (?P<proc_name>.*) ",
-                    r"ActivityManager: Reason: (?P<ex_name>.*?) \(.*\)"
+                    r"ActivityManager: ANR in (?P<proc_name>\S*)( .*)?",
+                    r"ActivityManager: Reason: (?P<ex_name>Input .*) \(.*\)",
+                    r"ActivityManager: Reason: (?P<ex_name>Broadcast .*)",
+                    r"ActivityManager: Reason: (?P<ex_name>executing .*)"
                 ]
             },
             "item_repl": [
                 r"ActivityManager: PID: (?P<pid>\d+)",
-                r"ActivityManager: Reason: .* \((?P<reason_detail>.*)\)"
+                r"ActivityManager: Reason: Input .*\((?P<reason_detail>.*)\)",
             ]
         }
     ]

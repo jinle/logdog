@@ -1,0 +1,88 @@
+09-11 16:55:18.469159  1364  1397 D PowerManagerService: Releasing suspend blocker "PowerManagerService.Display".
+09-11 16:55:18.908856  1364  2039 D ConnectivityService: getActiveNetworkInfo networkInfo = null
+09-11 16:55:19.223517  1364  1380 D ActivityManager: dumpStackTraces Full End:
+09-11 16:55:19.223618  1364  1380 D ActivityManager: dumptracesFile = /data/anr/traces.txt
+09-11 16:55:19.225463  1364  1380 E ActivityManager: ANR in com.google.android.gms.persistent
+09-11 16:55:19.225463  1364  1380 E ActivityManager: PID: 11646
+09-11 16:55:19.225463  1364  1380 E ActivityManager: Reason: executing service com.google.android.gms/com.google.android.location.reporting.service.DispatchingService
+09-11 16:55:19.225463  1364  1380 E ActivityManager: Load: 18.59 / 10.28 / 4.37
+09-11 16:55:19.225463  1364  1380 E ActivityManager: CPU usage from 10340ms to 1963ms ago:
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   15% 1364/system_server: 5.8% user + 10% kernel / faults: 3710 minor 2 major
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   4.4% 231/mmcqd/0: 0% user + 4.4% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   3.7% 8340/kworker/u20:7: 0% user + 3.7% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   2.5% 302/logd: 1.1% user + 1.3% kernel / faults: 3 minor
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   2.2% 370/mobile_log_d: 1.3% user + 0.9% kernel / faults: 65 minor
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   1.7% 203/hps_main: 0% user + 1.7% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   1.6% 273/jbd2/mmcblk0p32: 0% user + 1.6% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.7% 5237/com.qiku.eyemode: 0.3% user + 0.4% kernel / faults: 1660 minor 3 major
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   1.6% 11586/com.qihoo360.mobilesafe:GuardService: 1.1% user + 0.4% kernel / faults: 315 minor 4 major
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   1.5% 1754/com.qiku.powerengine:remote: 0.4% user + 1% kernel / faults: 222 minor
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.7% 62/cfinteractive: 0% user + 0.7% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.7% 1180/mtkrild: 0.1% user + 0.5% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.4% 1343/rilproxy: 0% user + 0.3% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.7% 1925/com.android.phone: 0.4% user + 0.2% kernel / faults: 19 minor
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.5% 331/surfaceflinger: 0.2% user + 0.3% kernel / faults: 41 minor
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.4% 980/viarild: 0.1% user + 0.3% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.2% 8341/com.qihoo.browser: 0.2% user + 0% kernel / faults: 1408 minor 3 major
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.2% 4/kworker/0:0: 0% user + 0.2% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.2% 11/migration/1: 0% user + 0.2% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.2% 95/pbm: 0% user + 0.2% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.1% 1036/gsm0710muxd: 0% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.2% 1539/com.android.systemui: 0.1% user + 0.1% kernel / faults: 27 minor
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.2% 1978/com.qiku.logsystem: 0% user + 0.2% kernel / faults: 12 minor
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.1% 3985/com.eg.android.AlipayGphone:push: 0% user + 0% kernel / faults: 1601 minor
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.2% 5636/com.eg.android.AlipayGphone: 0.1% user + 0.1% kernel / faults: 817 minor
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.1% 6/kworker/u20:0: 0% user + 0.1% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.1% 7/rcu_preempt: 0% user + 0.1% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 8/rcu_sched: 0% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.1% 10/migration/0: 0% user + 0.1% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 12/ksoftirqd/1: 0% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.1% 15/migration/2: 0% user + 0.1% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 16/ksoftirqd/2: 0% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 19/migration/3: 0% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 23/migration/4: 0% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.1% 54/kworker/u21:0: 0% user + 0.1% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 122/display_check_a: 0% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 192/migration/8: 0% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 197/kworker/u20:3: 0% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.1% 260/ueventd: 0% user + 0.1% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 311/migration/6: 0% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 329/lmkd: 0% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.1% 330/servicemanager: 0% user + 0.1% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.1% 376/aal: 0% user + 0.1% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 382/mtk_agpsd: 0% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.1% 393/fuelgauged: 0% user + 0.1% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 986/kworker/6:3: 0% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 1960/com.mediatek.ims: 0% user + 0% kernel / faults: 1 minor
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.1% 2063/com.qiku.magicball: 0.1% user + 0% kernel / faults: 57 minor
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 2909/volte_stack: 0% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0.1% 3092/ged_srv: 0% user + 0.1% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 3094/gas_srv: 0% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 5338/com.android.settings: 0% user + 0% kernel / faults: 43 minor
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   0% 9469/com.example.wakeup: 0% user + 0% kernel / faults: 2 minor
+09-11 16:55:19.225463  1364  1380 E ActivityManager:  +0% 11808/cp: 0% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager: 70% TOTAL: 7% user + 17% kernel + 45% iowait + 0% softirq
+09-11 16:55:19.225463  1364  1380 E ActivityManager: CPU usage from 709ms to 1223ms later:
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   52% 11808/cp: 0% user + 52% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   12% 1364/system_server: 7.3% user + 5.5% kernel / faults: 634 minor
+09-11 16:55:19.225463  1364  1380 E ActivityManager:     7.3% 1380/ActivityManager: 1.8% user + 5.5% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:     3.6% 1373/HeapTaskDaemon: 3.6% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:     1.8% 1371/FinalizerDaemon: 1.8% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   3.7% 203/hps_main: 0% user + 3.7% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   3.7% 231/mmcqd/0: 0% user + 3.7% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   1.2% 10/migration/0: 0% user + 1.2% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   1.3% 331/surfaceflinger: 0% user + 1.3% kernel / faults: 17 minor
+09-11 16:55:19.225463  1364  1380 E ActivityManager:     1.3% 331/surfaceflinger: 0% user + 1.3% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   1.3% 351/migration/9: 0% user + 1.3% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   1.4% 1539/com.android.systemui: 1.4% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:     1.4% 1539/ndroid.systemui: 1.4% user + 0% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:     1.4% 2722/mali-mem-purge: 0% user + 1.4% kernel
+09-11 16:55:19.225463  1364  1380 E ActivityManager:   1.6% 3985/com.eg.android.AlipayGphone:push: 1.6% user + 0% kernel / faults: 14 minor
+09-11 16:55:19.225463  1364  1380 E ActivityManager: 63% TOTAL: 4% user + 13% kernel 
+09-11 16:55:19.227221  1364  1380 E ActivityManager: get crashInfo fail.
+09-11 16:55:19.227924  1364  1380 I ActivityManager: Killing 11646:com.google.android.gms.persistent/u0a35 (adj 0): bg anr
+09-11 16:55:19.438949  1364  1380 E libprocessgroup: failed to kill 1 processes for processgroup 11646
+09-11 16:55:19.443931  1364  1380 W BroadcastQueue: Timeout of broadcast BroadcastRecord{bfc768c u-1 android.intent.action.SCREEN_OFF} - receiver=android.os.BinderProxy@dd97825, started 10442ms ago
+09-11 16:55:19.445564  1364  1380 W BroadcastQueue: Receiver during timeout: BroadcastFilter{5be9fab u0 ReceiverList{9d19dfa 11586 com.qihoo360.mobilesafe:GuardService/10003/u0 remote:dd97825}}
+09-11 16:55:19.447942  1364  1380 D ANRManager: isANRFlowSkipped() AnrFlow = 0
+09-11 16:55:19.448079  1364  1380 I ANRManager: setZramTag: 6

@@ -1,0 +1,25 @@
+11-25 21:52:29.558  3706  3723 D OpenGLRenderer: endAllActiveAnimators on 0x9afa3100 (ListView) with handle 0x8b8dbb60
+11-25 21:52:30.869  3706  3723 D EGL_emulation: eglMakeCurrent: 0x9afdd320: ver 2 0 (tinfo 0x9af91750)
+11-25 21:52:31.819  3706  3706 I BadBehaviorActivity: Native crash pressed -- about to kill -11 self
+11-25 21:52:31.819  3706  3706 I Process : Sending signal. PID: 3706 SIG: 11
+11-25 21:52:31.820  3706  3706 F libc    : Fatal signal 11 (SIGSEGV), code 0, fault addr 0xe7a in tid 3706 (oid.development)
+11-25 21:52:31.820  1255  1255 W         : debuggerd: handling request: pid=3706 uid=10042 gid=10042 tid=3706
+11-25 21:52:31.885  3762  3762 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+11-25 21:52:31.885  3762  3762 F DEBUG   : Build fingerprint: 'google/sdk_google_phone_x86/generic_x86:7.1.1/NYC/4414732:userdebug/test-keys'
+11-25 21:52:31.885  3762  3762 F DEBUG   : Revision: '0'
+11-25 21:52:31.885  3762  3762 F DEBUG   : ABI: 'x86'
+11-25 21:52:31.885  3762  3762 F DEBUG   : pid: 3706, tid: 3706, name: oid.development  >>> com.android.development <<<
+11-25 21:52:31.885  3762  3762 F DEBUG   : signal 11 (SIGSEGV), code 0 (SI_USER), fault addr 0xe7a
+11-25 21:52:31.885  3762  3762 F DEBUG   :     eax 00000000  ebx 00000e7a  ecx 0000000b  edx 00000004
+11-25 21:52:31.885  3762  3762 F DEBUG   :     esi 00000e7a  edi 0000000b
+11-25 21:52:31.885  3762  3762 F DEBUG   :     xcs 00000073  xds 0000007b  xes 0000007b  xfs 0000003b  xss 0000007b
+11-25 21:52:31.885  3762  3762 F DEBUG   :     eip a82db424  ebp 12d9c3a0  esp bfb81610  flags 00000296
+11-25 21:52:32.120  3762  3762 F DEBUG   : 
+11-25 21:52:32.120  3762  3762 F DEBUG   : backtrace:
+11-25 21:52:32.120  3762  3762 F DEBUG   :     #00 pc ffffe424  [vdso:a82db000] (__kernel_vsyscall+16)
+11-25 21:52:32.120  3762  3762 F DEBUG   :     #01 pc 00078d17  /system/lib/libc.so (kill+23)
+11-25 21:52:32.120  3762  3762 F DEBUG   :     #02 pc 000e70fa  /system/lib/libandroid_runtime.so (_Z29android_os_Process_sendSignalP7_JNIEnvP8_jobjectii+80)
+11-25 21:52:32.120  3762  3762 F DEBUG   :     #03 pc 01d4fc4e  /system/framework/x86/boot-framework.oat (offset 0x1585000) (android.os.Process.sendSignal+122)
+11-25 21:52:32.120  3762  3762 F DEBUG   :     #04 pc 00035492  /system/app/Development/oat/x86/Development.odex (offset 0x2f000)
+11-25 21:52:32.283  3706  3706 I Process : Sending signal. PID: 3706 SIG: 11
+11-25 21:52:32.284  1659  3767 W ActivityManager:   Force finishing activity com.android.development/.BadBehaviorActivity

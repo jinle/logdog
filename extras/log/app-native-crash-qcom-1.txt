@@ -1,0 +1,17 @@
+07-16 14:54:39.790 29367 29367 F libc    : Fatal signal 11 (SIGSEGV), code 1, fault addr 0xe65ad024 in tid 15244 (CAM_dataPoll)
+07-16 14:54:39.857 29367 29367 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+07-16 14:54:39.857 29367 29367 F DEBUG   : Build fingerprint: '360/QK1711/QK1711:7.1.1/NMF26F/7.1.010.PX.170714.360_360_QK1711_CN:user/release-keys'
+07-16 14:54:39.857 29367 29367 F DEBUG   : Revision: '0'
+07-16 14:54:39.857 29367 29367 F DEBUG   : ABI: 'arm'
+07-16 14:54:39.858 29367 29367 F DEBUG   : pid: 9825, tid: 15244, name: CAM_dataPoll  >>> /system/bin/cameraserver <<<
+07-16 14:54:39.858 29367 29367 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0xe65ad024
+07-16 14:54:39.858 29367 29367 F DEBUG   :     r0 00002710  r1 00000089  r2 fffffffe  r3 00000000
+07-16 14:54:39.858 29367 29367 F DEBUG   :     r4 e65ad024  r5 fffffff2  r6 0000000b  r7 c97f7978
+07-16 14:54:39.858 29367 29367 F DEBUG   :     r8 fffffffe  r9 ffffffff  sl 00000000  fp 00000089
+07-16 14:54:39.858 29367 29367 F DEBUG   :     ip e9760608  sp c97f78b8  lr e96f9a6d  pc e96f9a80  cpsr 800f0030
+07-16 14:54:39.860 29367 29367 F DEBUG   :
+07-16 14:54:39.860 29367 29367 F DEBUG   : backtrace:
+07-16 14:54:39.860 29367 29367 F DEBUG   :     #00 pc 0001da80  /system/lib/libc.so (sem_wait+91)
+07-16 14:54:39.860 29367 29367 F DEBUG   :     #01 pc e659cf0c  <unknown>
+
+
