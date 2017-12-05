@@ -109,7 +109,8 @@ class LogDogTest(unittest.TestCase):
         self.assertEqual(len(result), 1)
         k, v = list(result.items())[0]
         self.assertEqual(k.proc_name, "com.google.android.gms.persistent")
-        self.assertEqual(k.ex_name, "executing service com.google.android.gms/com.google.android.location.reporting.service.DispatchingService")
+        self.assertEqual(
+            k.ex_name, "executing service com.google.android.gms/com.google.android.location.reporting.service.DispatchingService")
         self.assertEqual(v, 1)
 
     @sessin("extras/log/app-anr-google-1.txt")
@@ -167,6 +168,43 @@ class LogDogTest(unittest.TestCase):
         self.assertEqual(k.proc_name, "com.qiku.logsystem")
         self.assertEqual(k.ex_name, "java.lang.RuntimeException")
         self.assertEqual(v, 1)
+
+    @sessin("extras/log/app-native-crash-mtk-1.txt")
+    def test_app_native_crash_mtk_1(self):
+        result = self.logdog.counter.result()
+        self.assertEqual(len(result), 1)
+        k, v = list(result.items())[0]
+        self.assertEqual(k.proc_name, "ps")
+        self.assertEqual(k.ex_name, "SIGPIPE")
+        self.assertEqual(v, 1)
+
+    @sessin("extras/log/app-native-crash-qcom-1.txt")
+    def test_app_native_crash_qcom_1(self):
+        result = self.logdog.counter.result()
+        self.assertEqual(len(result), 1)
+        k, v = list(result.items())[0]
+        self.assertEqual(k.proc_name, "/system/bin/cameraserver")
+        self.assertEqual(k.ex_name, "SIGSEGV")
+        self.assertEqual(v, 1)
+
+    @sessin("extras/log/app-native-crash-qcom-2.txt")
+    def test_app_native_crash_qcom_2(self):
+        result = self.logdog.counter.result()
+        self.assertEqual(len(result), 1)
+        k, v = list(result.items())[0]
+        self.assertEqual(k.proc_name, "com.tencent.mm")
+        self.assertEqual(k.ex_name, "SIGABRT")
+        self.assertEqual(v, 1)
+
+    @sessin("extras/log/app-native-crash-google-x86-1.txt",
+            "extras/log/app-native-crash-google-x86-2.txt")
+    def test_app_native_crash_google_x86(self):
+        result = self.logdog.counter.result()
+        self.assertEqual(len(result), 1)
+        k, v = list(result.items())[0]
+        self.assertEqual(k.proc_name, "com.android.development")
+        self.assertEqual(k.ex_name, "SIGSEGV")
+        self.assertEqual(v, 2)
 
 
 if __name__ == "__main__":
