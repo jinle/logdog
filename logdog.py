@@ -121,12 +121,14 @@ class LogDog:
     def _search(self, fobj, callback):
         tastes = self.config["tastes"]
         for line in fobj:
+            line = line.replace("\r\n", "\n")
             for t in tastes:
                 if re.search(t["begin_tag_co"], line):
                     bone_text = []
                     bone_text.append(line)
                     # 找到所有续行
                     for xline in fobj:
+                        xline = xline.replace("\r\n", "\n")
                         if self._is_tag_line(xline, t):
                             bone_text.append(xline)
                         else:
