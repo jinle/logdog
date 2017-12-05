@@ -6,7 +6,7 @@ python:
     - "3.5"
 
 install:
-    - pip install --user codecov
+    - pip install codecov
 
 script:
     - coverage run test_main.py
