@@ -10,3 +10,6 @@ install:
 
 script:
     - coverage run test_main.py
+
+after_success:
+    - codecov
